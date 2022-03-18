@@ -1,0 +1,6 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - comet-ms=2021010-0
+  - mokapot=0.7.4-0

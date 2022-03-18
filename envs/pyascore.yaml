@@ -1,0 +1,11 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.6
+  - pip
+  - pyteomics
+  - cython
+  - tqdm
+  - pip:
+    - "git+git://github.com/AnthonyOfSeattle/pyAscore.git@302e12f16f522b06def4c1db813da22e4253f723"
