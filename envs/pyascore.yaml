@@ -8,4 +8,4 @@ dependencies:
   - cython
   - tqdm
   - pip:
-    - "git+git://github.com/AnthonyOfSeattle/pyAscore.git@302e12f16f522b06def4c1db813da22e4253f723"
+    - "git+https://github.com/AnthonyOfSeattle/pyAscore.git@c6d0146fcdcf6b5e7aba5f9700a7bc103e24b411"
