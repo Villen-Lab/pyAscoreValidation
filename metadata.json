@@ -1,0 +1,28 @@
+{
+  "project" : {
+    "submitter_name"             : "Anthony Barente",
+    "submitter_email"            : "valenta4@uw.edu",
+    "submitter_affiliation"      : "University of Washington",
+    "lab_head_name"              : "Judit Villén",
+    "lab_head_email"             : "jvillen@uw.edu",
+    "lab_head_affilation"        : "University of Washington",
+    "submitter_pride_login"      : "valenta4@uw.edu",
+    "project_title"              : "Validating pyAscore, A Python Package for the Localization of Protein Modifications",
+    "project_description"        : "The submitted dataset contains results of validation experiments for pyAscore, an efficient and versatile implementation of the Ascore algorithm in Python for scoring the localization of user defined PTMs in data dependent mass spectrometry. In order to test the versatility of the package, three samples from three pride accessions were re-analyzed: label-free phosphoprotome samples were downloaded from PXD007740, TMT-labeled phosphoproteome samples were downloaded from PXD007145, and label free acetylome samples were downloaded from MSV000079068. We also wanted to evaluate the performance of pyAscore's PTM localizations on data where the modification site of peptides was known. Thus, we downloaded and re-analyzed synthetic phosphopeptide samples which were analyzed with 3 different fragmentation approaches: HCD and ETD synthetic phosphopeptide data were downloaded from PXD000138 and CID data were downloaded from PXD000759.",
+    "sample_processing_protocol" : "Information about sample processing can be found in each samples original publication.",
+    "data_processing_protocol"   : "Mass spectrometry data for individual experiments was downloaded directly from MassIVE or PRIDE, converted to mzML format with ThermoRawFileParser (v. 1.3.4) and then searched with the Comet database search software (v. 2021010). Recommended parameters for high resolution and low resolution searches were taken from the Comet documentation. Human samples were searched with the uniprot Homo sapiens reference proteome (downloaded Feb 8, 2022), and all synthetic peptide data was searched with the FASTA from PXD000138. All files were searched with carbamidomethylation on cysteines as static modification and oxidized methionine as variable modification. Since dataset PXD007145 reports TMT-labeled peptides, a TMT 10-plex modification was added as a static modification on lysines and peptide N-termini. For the synthetic peptide datasets, PXD000138 and PXD000759, and the other phosphoproteomic datasets, PXD007740 and PXD007145, the modification of interest was phosphorylation on serine, threonine, and tyrosine, and this was included in the variable modification list. For dataset MSV000079068, acetylation of the protein N-terminus and internal lysines was included as a variable modification, but peptide C-terminal lysines were not allowed to be acetylated. Finally, HCD and CID data were searched with the b and y ion series, whereas ETD data was searched with the c and z+H ion series. All searches were subsequently grouped by dataset and fragmentation method and analyzed with Mokapot using default parameters. Unless otherwise noted, for pyAscore localization, the fragment error was set to 0.05 Da and the same ion series as the searches was used.",
+    "keywords"                   : "Human,Synthetic,PTM,Phosphorylation,Acetylation",
+    "submission_type"            : "PARTIAL",
+    "experiment_type"            : "[PRIDE, PRIDE:0000429, Shotgun proteomics, ]",
+    "reason_for_partial"         : "FIX ME",
+    "species"                    : "[NEWT, 9606, Homo Sapiens (Human),]",
+    "tissue"                     : "[PRIDE, PRIDE: 0000442, Tissue not applicable to dataset,]",
+    "instrument"                 : ["[MS, MS:1001911, Q Exactive,]",
+                                    "[MS, MS:1002732, Orbitrap Fusion Lumos,]",
+                                    "[MS, MS:1001742, LTQ Orbitrap Velos,]",
+                                    "[MS, MS:1001910, LTQ Orbitrap Elite,]"],
+    "modification"               : ["[MOD, MOD:00696, phosphorylated residue,]",
+                                    "[MOD, MOD:00394, monoacetylated residue,]"],
+    "reanalysis_px"              : ["PXD007740", "MSV000079068", "PXD007145", "PXD000138", "PXD000759"]
+  }
+}

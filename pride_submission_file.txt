@@ -1,0 +1,1194 @@
+MTD	submitter_name	Anthony Barente
+MTD	submitter_email	valenta4@uw.edu
+MTD	submitter_affiliation	University of Washington
+MTD	lab_head_name	Judit Villén
+MTD	lab_head_email	jvillen@uw.edu
+MTD	lab_head_affilation	University of Washington
+MTD	submitter_pride_login	valenta4@uw.edu
+MTD	project_title	Validating pyAscore, A Python Package for the Localization of Protein Modifications
+MTD	project_description	The submitted dataset contains results of validation experiments for pyAscore, an efficient and versatile implementation of the Ascore algorithm in Python for scoring the localization of user defined PTMs in data dependent mass spectrometry. In order to test the versatility of the package, three samples from three pride accessions were re-analyzed: label-free phosphoprotome samples were downloaded from PXD007740, TMT-labeled phosphoproteome samples were downloaded from PXD007145, and label free acetylome samples were downloaded from MSV000079068. We also wanted to evaluate the performance of pyAscore's PTM localizations on data where the modification site of peptides was known. Thus, we downloaded and re-analyzed synthetic phosphopeptide samples which were analyzed with 3 different fragmentation approaches: HCD and ETD synthetic phosphopeptide data were downloaded from PXD000138 and CID data were downloaded from PXD000759.
+MTD	sample_processing_protocol	Information about sample processing can be found in each samples original publication.
+MTD	data_processing_protocol	Mass spectrometry data for individual experiments was downloaded directly from MassIVE or PRIDE, converted to mzML format with ThermoRawFileParser (v. 1.3.4) and then searched with the Comet database search software (v. 2021010). Recommended parameters for high resolution and low resolution searches were taken from the Comet documentation. Human samples were searched with the uniprot Homo sapiens reference proteome (downloaded Feb 8, 2022), and all synthetic peptide data was searched with the FASTA from PXD000138. All files were searched with carbamidomethylation on cysteines as static modification and oxidized methionine as variable modification. Since dataset PXD007145 reports TMT-labeled peptides, a TMT 10-plex modification was added as a static modification on lysines and peptide N-termini. For the synthetic peptide datasets, PXD000138 and PXD000759, and the other phosphoproteomic datasets, PXD007740 and PXD007145, the modification of interest was phosphorylation on serine, threonine, and tyrosine, and this was included in the variable modification list. For dataset MSV000079068, acetylation of the protein N-terminus and internal lysines was included as a variable modification, but peptide C-terminal lysines were not allowed to be acetylated. Finally, HCD and CID data were searched with the b and y ion series, whereas ETD data was searched with the c and z+H ion series. All searches were subsequently grouped by dataset and fragmentation method and analyzed with Mokapot using default parameters. Unless otherwise noted, for pyAscore localization, the fragment error was set to 0.05 Da and the same ion series as the searches was used.
+MTD	keywords	Human,Synthetic,PTM,Phosphorylation,Acetylation
+MTD	submission_type	PARTIAL
+MTD	experiment_type	[PRIDE, PRIDE:0000429, Shotgun proteomics, ]
+MTD	reason_for_partial	FIX ME
+MTD	species	[NEWT, 9606, Homo Sapiens (Human),]
+MTD	tissue	[PRIDE, PRIDE: 0000442, Tissue not applicable to dataset,]
+MTD	instrument	[MS, MS:1001911, Q Exactive,]
+MTD	instrument	[MS, MS:1002732, Orbitrap Fusion Lumos,]
+MTD	instrument	[MS, MS:1001742, LTQ Orbitrap Velos,]
+MTD	instrument	[MS, MS:1001910, LTQ Orbitrap Elite,]
+MTD	modification	[MOD, MOD:00696, phosphorylated residue,]
+MTD	modification	[MOD, MOD:00394, monoacetylated residue,]
+MTD	reanalysis_px	PXD007740
+MTD	reanalysis_px	MSV000079068
+MTD	reanalysis_px	PXD007145
+MTD	reanalysis_px	PXD000138
+MTD	reanalysis_px	PXD000759
+
+FMH	file_id	file_type	file_path	file_mapping
+FME	1	search	results/localization/PXD007740/ctr_2h_R1_IMAC_1.pyascore.narrow.txt	4,8
+FME	2	search	results/localization/PXD007740/ctr_2h_R2_IMAC_1.pyascore.narrow.txt	4,9
+FME	3	search	results/localization/PXD007740/ctr_2h_R3_IMAC_1.pyascore.narrow.txt	4,10
+FME	4	search	results/search/PXD007740/PXD007740.mokapot.psms.txt	5,6,7,8,9,10
+FME	5	search	results/search/PXD007740/ctr_2h_R1_IMAC_1.comet.pin	8
+FME	6	search	results/search/PXD007740/ctr_2h_R2_IMAC_1.comet.pin	9
+FME	7	search	results/search/PXD007740/ctr_2h_R3_IMAC_1.comet.pin	10
+FME	8	raw	results/samples/PXD007740/ctr_2h_R1_IMAC_1.raw
+FME	9	raw	results/samples/PXD007740/ctr_2h_R2_IMAC_1.raw
+FME	10	raw	results/samples/PXD007740/ctr_2h_R3_IMAC_1.raw
+FME	11	search	results/localization/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep1_2mgPeptides_25ug.pyascore.narrow.txt	14,18
+FME	12	search	results/localization/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep2_2mgPeptides_25ug.pyascore.narrow.txt	14,19
+FME	13	search	results/localization/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep3_2mgPeptides_25ug.pyascore.narrow.txt	14,20
+FME	14	search	results/search/MSV000079068/MSV000079068.mokapot.psms.txt	15,16,17,18,19,20
+FME	15	search	results/search/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep1_2mgPeptides_25ug.comet.pin	18
+FME	16	search	results/search/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep2_2mgPeptides_25ug.comet.pin	19
+FME	17	search	results/search/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep3_2mgPeptides_25ug.comet.pin	20
+FME	18	raw	results/samples/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep1_2mgPeptides_25ug.raw
+FME	19	raw	results/samples/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep2_2mgPeptides_25ug.raw
+FME	20	raw	results/samples/MSV000079068/F20140627_TS_CST_TitrationCurve_Rep3_2mgPeptides_25ug.raw
+FME	21	search	results/localization/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_1_160718220637.pyascore.narrow.txt	24,28
+FME	22	search	results/localization/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_2_160719122437.pyascore.narrow.txt	24,29
+FME	23	search	results/localization/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_3.pyascore.narrow.txt	24,30
+FME	24	search	results/search/PXD007145/PXD007145.mokapot.psms.txt	25,26,27,28,29,30
+FME	25	search	results/search/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_1_160718220637.comet.pin	28
+FME	26	search	results/search/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_2_160719122437.comet.pin	29
+FME	27	search	results/search/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_3.comet.pin	30
+FME	28	raw	results/samples/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_1_160718220637.raw
+FME	29	raw	results/samples/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_2_160719122437.raw
+FME	30	raw	results/samples/PXD007145/20160718_LUMOS1_nLC13_AH_TMT10plex-SanJose-HCDMS2_3.raw
+FME	31	search	results/localization/PXD000138-HCD/1.pyascore.narrow.txt	223,320
+FME	32	search	results/localization/PXD000138-HCD/2.pyascore.narrow.txt	223,321
+FME	33	search	results/localization/PXD000138-HCD/3.pyascore.narrow.txt	223,322
+FME	34	search	results/localization/PXD000138-HCD/4.pyascore.narrow.txt	223,323
+FME	35	search	results/localization/PXD000138-HCD/5.pyascore.narrow.txt	223,324
+FME	36	search	results/localization/PXD000138-HCD/6.pyascore.narrow.txt	223,325
+FME	37	search	results/localization/PXD000138-HCD/7.pyascore.narrow.txt	223,326
+FME	38	search	results/localization/PXD000138-HCD/8.pyascore.narrow.txt	223,327
+FME	39	search	results/localization/PXD000138-HCD/9.pyascore.narrow.txt	223,328
+FME	40	search	results/localization/PXD000138-HCD/10.pyascore.narrow.txt	223,329
+FME	41	search	results/localization/PXD000138-HCD/11.pyascore.narrow.txt	223,330
+FME	42	search	results/localization/PXD000138-HCD/12.pyascore.narrow.txt	223,331
+FME	43	search	results/localization/PXD000138-HCD/13.pyascore.narrow.txt	223,332
+FME	44	search	results/localization/PXD000138-HCD/14.pyascore.narrow.txt	223,333
+FME	45	search	results/localization/PXD000138-HCD/15.pyascore.narrow.txt	223,334
+FME	46	search	results/localization/PXD000138-HCD/16.pyascore.narrow.txt	223,335
+FME	47	search	results/localization/PXD000138-HCD/17.pyascore.narrow.txt	223,336
+FME	48	search	results/localization/PXD000138-HCD/18.pyascore.narrow.txt	223,337
+FME	49	search	results/localization/PXD000138-HCD/19.pyascore.narrow.txt	223,338
+FME	50	search	results/localization/PXD000138-HCD/20.pyascore.narrow.txt	223,339
+FME	51	search	results/localization/PXD000138-HCD/21.pyascore.narrow.txt	223,340
+FME	52	search	results/localization/PXD000138-HCD/22.pyascore.narrow.txt	223,341
+FME	53	search	results/localization/PXD000138-HCD/23.pyascore.narrow.txt	223,342
+FME	54	search	results/localization/PXD000138-HCD/24.pyascore.narrow.txt	223,343
+FME	55	search	results/localization/PXD000138-HCD/25.pyascore.narrow.txt	223,344
+FME	56	search	results/localization/PXD000138-HCD/26.pyascore.narrow.txt	223,345
+FME	57	search	results/localization/PXD000138-HCD/27.pyascore.narrow.txt	223,346
+FME	58	search	results/localization/PXD000138-HCD/28.pyascore.narrow.txt	223,347
+FME	59	search	results/localization/PXD000138-HCD/29.pyascore.narrow.txt	223,348
+FME	60	search	results/localization/PXD000138-HCD/30.pyascore.narrow.txt	223,349
+FME	61	search	results/localization/PXD000138-HCD/31.pyascore.narrow.txt	223,350
+FME	62	search	results/localization/PXD000138-HCD/32.pyascore.narrow.txt	223,351
+FME	63	search	results/localization/PXD000138-HCD/33.pyascore.narrow.txt	223,352
+FME	64	search	results/localization/PXD000138-HCD/34.pyascore.narrow.txt	223,353
+FME	65	search	results/localization/PXD000138-HCD/35.pyascore.narrow.txt	223,354
+FME	66	search	results/localization/PXD000138-HCD/36.pyascore.narrow.txt	223,355
+FME	67	search	results/localization/PXD000138-HCD/37.pyascore.narrow.txt	223,356
+FME	68	search	results/localization/PXD000138-HCD/38.pyascore.narrow.txt	223,357
+FME	69	search	results/localization/PXD000138-HCD/39.pyascore.narrow.txt	223,358
+FME	70	search	results/localization/PXD000138-HCD/40.pyascore.narrow.txt	223,359
+FME	71	search	results/localization/PXD000138-HCD/41.pyascore.narrow.txt	223,360
+FME	72	search	results/localization/PXD000138-HCD/42.pyascore.narrow.txt	223,361
+FME	73	search	results/localization/PXD000138-HCD/43.pyascore.narrow.txt	223,362
+FME	74	search	results/localization/PXD000138-HCD/44.pyascore.narrow.txt	223,363
+FME	75	search	results/localization/PXD000138-HCD/45.pyascore.narrow.txt	223,364
+FME	76	search	results/localization/PXD000138-HCD/46.pyascore.narrow.txt	223,365
+FME	77	search	results/localization/PXD000138-HCD/47.pyascore.narrow.txt	223,366
+FME	78	search	results/localization/PXD000138-HCD/48.pyascore.narrow.txt	223,367
+FME	79	search	results/localization/PXD000138-HCD/49.pyascore.narrow.txt	223,368
+FME	80	search	results/localization/PXD000138-HCD/50.pyascore.narrow.txt	223,369
+FME	81	search	results/localization/PXD000138-HCD/51.pyascore.narrow.txt	223,370
+FME	82	search	results/localization/PXD000138-HCD/52.pyascore.narrow.txt	223,371
+FME	83	search	results/localization/PXD000138-HCD/53.pyascore.narrow.txt	223,372
+FME	84	search	results/localization/PXD000138-HCD/54.pyascore.narrow.txt	223,373
+FME	85	search	results/localization/PXD000138-HCD/55.pyascore.narrow.txt	223,374
+FME	86	search	results/localization/PXD000138-HCD/56.pyascore.narrow.txt	223,375
+FME	87	search	results/localization/PXD000138-HCD/57.pyascore.narrow.txt	223,376
+FME	88	search	results/localization/PXD000138-HCD/58.pyascore.narrow.txt	223,377
+FME	89	search	results/localization/PXD000138-HCD/59.pyascore.narrow.txt	223,378
+FME	90	search	results/localization/PXD000138-HCD/60.pyascore.narrow.txt	223,379
+FME	91	search	results/localization/PXD000138-HCD/61.pyascore.narrow.txt	223,380
+FME	92	search	results/localization/PXD000138-HCD/62.pyascore.narrow.txt	223,381
+FME	93	search	results/localization/PXD000138-HCD/63.pyascore.narrow.txt	223,382
+FME	94	search	results/localization/PXD000138-HCD/64.pyascore.narrow.txt	223,383
+FME	95	search	results/localization/PXD000138-HCD/65.pyascore.narrow.txt	223,384
+FME	96	search	results/localization/PXD000138-HCD/66.pyascore.narrow.txt	223,385
+FME	97	search	results/localization/PXD000138-HCD/67.pyascore.narrow.txt	223,386
+FME	98	search	results/localization/PXD000138-HCD/68.pyascore.narrow.txt	223,387
+FME	99	search	results/localization/PXD000138-HCD/69.pyascore.narrow.txt	223,388
+FME	100	search	results/localization/PXD000138-HCD/70.pyascore.narrow.txt	223,389
+FME	101	search	results/localization/PXD000138-HCD/71.pyascore.narrow.txt	223,390
+FME	102	search	results/localization/PXD000138-HCD/72.pyascore.narrow.txt	223,391
+FME	103	search	results/localization/PXD000138-HCD/73.pyascore.narrow.txt	223,392
+FME	104	search	results/localization/PXD000138-HCD/74.pyascore.narrow.txt	223,393
+FME	105	search	results/localization/PXD000138-HCD/75.pyascore.narrow.txt	223,394
+FME	106	search	results/localization/PXD000138-HCD/76.pyascore.narrow.txt	223,395
+FME	107	search	results/localization/PXD000138-HCD/77.pyascore.narrow.txt	223,396
+FME	108	search	results/localization/PXD000138-HCD/78.pyascore.narrow.txt	223,397
+FME	109	search	results/localization/PXD000138-HCD/79.pyascore.narrow.txt	223,398
+FME	110	search	results/localization/PXD000138-HCD/80.pyascore.narrow.txt	223,399
+FME	111	search	results/localization/PXD000138-HCD/81.pyascore.narrow.txt	223,400
+FME	112	search	results/localization/PXD000138-HCD/82.pyascore.narrow.txt	223,401
+FME	113	search	results/localization/PXD000138-HCD/83.pyascore.narrow.txt	223,402
+FME	114	search	results/localization/PXD000138-HCD/84.pyascore.narrow.txt	223,403
+FME	115	search	results/localization/PXD000138-HCD/85.pyascore.narrow.txt	223,404
+FME	116	search	results/localization/PXD000138-HCD/86.pyascore.narrow.txt	223,405
+FME	117	search	results/localization/PXD000138-HCD/87.pyascore.narrow.txt	223,406
+FME	118	search	results/localization/PXD000138-HCD/88.pyascore.narrow.txt	223,407
+FME	119	search	results/localization/PXD000138-HCD/89.pyascore.narrow.txt	223,408
+FME	120	search	results/localization/PXD000138-HCD/90.pyascore.narrow.txt	223,409
+FME	121	search	results/localization/PXD000138-HCD/91.pyascore.narrow.txt	223,410
+FME	122	search	results/localization/PXD000138-HCD/92.pyascore.narrow.txt	223,411
+FME	123	search	results/localization/PXD000138-HCD/93.pyascore.narrow.txt	223,412
+FME	124	search	results/localization/PXD000138-HCD/94.pyascore.narrow.txt	223,413
+FME	125	search	results/localization/PXD000138-HCD/95.pyascore.narrow.txt	223,414
+FME	126	search	results/localization/PXD000138-HCD/96.pyascore.narrow.txt	223,415
+FME	127	search	results/localization/PXD000138-HCD/1.pyascore.wide.txt	223,320
+FME	128	search	results/localization/PXD000138-HCD/2.pyascore.wide.txt	223,321
+FME	129	search	results/localization/PXD000138-HCD/3.pyascore.wide.txt	223,322
+FME	130	search	results/localization/PXD000138-HCD/4.pyascore.wide.txt	223,323
+FME	131	search	results/localization/PXD000138-HCD/5.pyascore.wide.txt	223,324
+FME	132	search	results/localization/PXD000138-HCD/6.pyascore.wide.txt	223,325
+FME	133	search	results/localization/PXD000138-HCD/7.pyascore.wide.txt	223,326
+FME	134	search	results/localization/PXD000138-HCD/8.pyascore.wide.txt	223,327
+FME	135	search	results/localization/PXD000138-HCD/9.pyascore.wide.txt	223,328
+FME	136	search	results/localization/PXD000138-HCD/10.pyascore.wide.txt	223,329
+FME	137	search	results/localization/PXD000138-HCD/11.pyascore.wide.txt	223,330
+FME	138	search	results/localization/PXD000138-HCD/12.pyascore.wide.txt	223,331
+FME	139	search	results/localization/PXD000138-HCD/13.pyascore.wide.txt	223,332
+FME	140	search	results/localization/PXD000138-HCD/14.pyascore.wide.txt	223,333
+FME	141	search	results/localization/PXD000138-HCD/15.pyascore.wide.txt	223,334
+FME	142	search	results/localization/PXD000138-HCD/16.pyascore.wide.txt	223,335
+FME	143	search	results/localization/PXD000138-HCD/17.pyascore.wide.txt	223,336
+FME	144	search	results/localization/PXD000138-HCD/18.pyascore.wide.txt	223,337
+FME	145	search	results/localization/PXD000138-HCD/19.pyascore.wide.txt	223,338
+FME	146	search	results/localization/PXD000138-HCD/20.pyascore.wide.txt	223,339
+FME	147	search	results/localization/PXD000138-HCD/21.pyascore.wide.txt	223,340
+FME	148	search	results/localization/PXD000138-HCD/22.pyascore.wide.txt	223,341
+FME	149	search	results/localization/PXD000138-HCD/23.pyascore.wide.txt	223,342
+FME	150	search	results/localization/PXD000138-HCD/24.pyascore.wide.txt	223,343
+FME	151	search	results/localization/PXD000138-HCD/25.pyascore.wide.txt	223,344
+FME	152	search	results/localization/PXD000138-HCD/26.pyascore.wide.txt	223,345
+FME	153	search	results/localization/PXD000138-HCD/27.pyascore.wide.txt	223,346
+FME	154	search	results/localization/PXD000138-HCD/28.pyascore.wide.txt	223,347
+FME	155	search	results/localization/PXD000138-HCD/29.pyascore.wide.txt	223,348
+FME	156	search	results/localization/PXD000138-HCD/30.pyascore.wide.txt	223,349
+FME	157	search	results/localization/PXD000138-HCD/31.pyascore.wide.txt	223,350
+FME	158	search	results/localization/PXD000138-HCD/32.pyascore.wide.txt	223,351
+FME	159	search	results/localization/PXD000138-HCD/33.pyascore.wide.txt	223,352
+FME	160	search	results/localization/PXD000138-HCD/34.pyascore.wide.txt	223,353
+FME	161	search	results/localization/PXD000138-HCD/35.pyascore.wide.txt	223,354
+FME	162	search	results/localization/PXD000138-HCD/36.pyascore.wide.txt	223,355
+FME	163	search	results/localization/PXD000138-HCD/37.pyascore.wide.txt	223,356
+FME	164	search	results/localization/PXD000138-HCD/38.pyascore.wide.txt	223,357
+FME	165	search	results/localization/PXD000138-HCD/39.pyascore.wide.txt	223,358
+FME	166	search	results/localization/PXD000138-HCD/40.pyascore.wide.txt	223,359
+FME	167	search	results/localization/PXD000138-HCD/41.pyascore.wide.txt	223,360
+FME	168	search	results/localization/PXD000138-HCD/42.pyascore.wide.txt	223,361
+FME	169	search	results/localization/PXD000138-HCD/43.pyascore.wide.txt	223,362
+FME	170	search	results/localization/PXD000138-HCD/44.pyascore.wide.txt	223,363
+FME	171	search	results/localization/PXD000138-HCD/45.pyascore.wide.txt	223,364
+FME	172	search	results/localization/PXD000138-HCD/46.pyascore.wide.txt	223,365
+FME	173	search	results/localization/PXD000138-HCD/47.pyascore.wide.txt	223,366
+FME	174	search	results/localization/PXD000138-HCD/48.pyascore.wide.txt	223,367
+FME	175	search	results/localization/PXD000138-HCD/49.pyascore.wide.txt	223,368
+FME	176	search	results/localization/PXD000138-HCD/50.pyascore.wide.txt	223,369
+FME	177	search	results/localization/PXD000138-HCD/51.pyascore.wide.txt	223,370
+FME	178	search	results/localization/PXD000138-HCD/52.pyascore.wide.txt	223,371
+FME	179	search	results/localization/PXD000138-HCD/53.pyascore.wide.txt	223,372
+FME	180	search	results/localization/PXD000138-HCD/54.pyascore.wide.txt	223,373
+FME	181	search	results/localization/PXD000138-HCD/55.pyascore.wide.txt	223,374
+FME	182	search	results/localization/PXD000138-HCD/56.pyascore.wide.txt	223,375
+FME	183	search	results/localization/PXD000138-HCD/57.pyascore.wide.txt	223,376
+FME	184	search	results/localization/PXD000138-HCD/58.pyascore.wide.txt	223,377
+FME	185	search	results/localization/PXD000138-HCD/59.pyascore.wide.txt	223,378
+FME	186	search	results/localization/PXD000138-HCD/60.pyascore.wide.txt	223,379
+FME	187	search	results/localization/PXD000138-HCD/61.pyascore.wide.txt	223,380
+FME	188	search	results/localization/PXD000138-HCD/62.pyascore.wide.txt	223,381
+FME	189	search	results/localization/PXD000138-HCD/63.pyascore.wide.txt	223,382
+FME	190	search	results/localization/PXD000138-HCD/64.pyascore.wide.txt	223,383
+FME	191	search	results/localization/PXD000138-HCD/65.pyascore.wide.txt	223,384
+FME	192	search	results/localization/PXD000138-HCD/66.pyascore.wide.txt	223,385
+FME	193	search	results/localization/PXD000138-HCD/67.pyascore.wide.txt	223,386
+FME	194	search	results/localization/PXD000138-HCD/68.pyascore.wide.txt	223,387
+FME	195	search	results/localization/PXD000138-HCD/69.pyascore.wide.txt	223,388
+FME	196	search	results/localization/PXD000138-HCD/70.pyascore.wide.txt	223,389
+FME	197	search	results/localization/PXD000138-HCD/71.pyascore.wide.txt	223,390
+FME	198	search	results/localization/PXD000138-HCD/72.pyascore.wide.txt	223,391
+FME	199	search	results/localization/PXD000138-HCD/73.pyascore.wide.txt	223,392
+FME	200	search	results/localization/PXD000138-HCD/74.pyascore.wide.txt	223,393
+FME	201	search	results/localization/PXD000138-HCD/75.pyascore.wide.txt	223,394
+FME	202	search	results/localization/PXD000138-HCD/76.pyascore.wide.txt	223,395
+FME	203	search	results/localization/PXD000138-HCD/77.pyascore.wide.txt	223,396
+FME	204	search	results/localization/PXD000138-HCD/78.pyascore.wide.txt	223,397
+FME	205	search	results/localization/PXD000138-HCD/79.pyascore.wide.txt	223,398
+FME	206	search	results/localization/PXD000138-HCD/80.pyascore.wide.txt	223,399
+FME	207	search	results/localization/PXD000138-HCD/81.pyascore.wide.txt	223,400
+FME	208	search	results/localization/PXD000138-HCD/82.pyascore.wide.txt	223,401
+FME	209	search	results/localization/PXD000138-HCD/83.pyascore.wide.txt	223,402
+FME	210	search	results/localization/PXD000138-HCD/84.pyascore.wide.txt	223,403
+FME	211	search	results/localization/PXD000138-HCD/85.pyascore.wide.txt	223,404
+FME	212	search	results/localization/PXD000138-HCD/86.pyascore.wide.txt	223,405
+FME	213	search	results/localization/PXD000138-HCD/87.pyascore.wide.txt	223,406
+FME	214	search	results/localization/PXD000138-HCD/88.pyascore.wide.txt	223,407
+FME	215	search	results/localization/PXD000138-HCD/89.pyascore.wide.txt	223,408
+FME	216	search	results/localization/PXD000138-HCD/90.pyascore.wide.txt	223,409
+FME	217	search	results/localization/PXD000138-HCD/91.pyascore.wide.txt	223,410
+FME	218	search	results/localization/PXD000138-HCD/92.pyascore.wide.txt	223,411
+FME	219	search	results/localization/PXD000138-HCD/93.pyascore.wide.txt	223,412
+FME	220	search	results/localization/PXD000138-HCD/94.pyascore.wide.txt	223,413
+FME	221	search	results/localization/PXD000138-HCD/95.pyascore.wide.txt	223,414
+FME	222	search	results/localization/PXD000138-HCD/96.pyascore.wide.txt	223,415
+FME	223	search	results/search/PXD000138-HCD/PXD000138-HCD.mokapot.psms.txt	224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415
+FME	224	search	results/search/PXD000138-HCD/1.comet.pin	320
+FME	225	search	results/search/PXD000138-HCD/2.comet.pin	321
+FME	226	search	results/search/PXD000138-HCD/3.comet.pin	322
+FME	227	search	results/search/PXD000138-HCD/4.comet.pin	323
+FME	228	search	results/search/PXD000138-HCD/5.comet.pin	324
+FME	229	search	results/search/PXD000138-HCD/6.comet.pin	325
+FME	230	search	results/search/PXD000138-HCD/7.comet.pin	326
+FME	231	search	results/search/PXD000138-HCD/8.comet.pin	327
+FME	232	search	results/search/PXD000138-HCD/9.comet.pin	328
+FME	233	search	results/search/PXD000138-HCD/10.comet.pin	329
+FME	234	search	results/search/PXD000138-HCD/11.comet.pin	330
+FME	235	search	results/search/PXD000138-HCD/12.comet.pin	331
+FME	236	search	results/search/PXD000138-HCD/13.comet.pin	332
+FME	237	search	results/search/PXD000138-HCD/14.comet.pin	333
+FME	238	search	results/search/PXD000138-HCD/15.comet.pin	334
+FME	239	search	results/search/PXD000138-HCD/16.comet.pin	335
+FME	240	search	results/search/PXD000138-HCD/17.comet.pin	336
+FME	241	search	results/search/PXD000138-HCD/18.comet.pin	337
+FME	242	search	results/search/PXD000138-HCD/19.comet.pin	338
+FME	243	search	results/search/PXD000138-HCD/20.comet.pin	339
+FME	244	search	results/search/PXD000138-HCD/21.comet.pin	340
+FME	245	search	results/search/PXD000138-HCD/22.comet.pin	341
+FME	246	search	results/search/PXD000138-HCD/23.comet.pin	342
+FME	247	search	results/search/PXD000138-HCD/24.comet.pin	343
+FME	248	search	results/search/PXD000138-HCD/25.comet.pin	344
+FME	249	search	results/search/PXD000138-HCD/26.comet.pin	345
+FME	250	search	results/search/PXD000138-HCD/27.comet.pin	346
+FME	251	search	results/search/PXD000138-HCD/28.comet.pin	347
+FME	252	search	results/search/PXD000138-HCD/29.comet.pin	348
+FME	253	search	results/search/PXD000138-HCD/30.comet.pin	349
+FME	254	search	results/search/PXD000138-HCD/31.comet.pin	350
+FME	255	search	results/search/PXD000138-HCD/32.comet.pin	351
+FME	256	search	results/search/PXD000138-HCD/33.comet.pin	352
+FME	257	search	results/search/PXD000138-HCD/34.comet.pin	353
+FME	258	search	results/search/PXD000138-HCD/35.comet.pin	354
+FME	259	search	results/search/PXD000138-HCD/36.comet.pin	355
+FME	260	search	results/search/PXD000138-HCD/37.comet.pin	356
+FME	261	search	results/search/PXD000138-HCD/38.comet.pin	357
+FME	262	search	results/search/PXD000138-HCD/39.comet.pin	358
+FME	263	search	results/search/PXD000138-HCD/40.comet.pin	359
+FME	264	search	results/search/PXD000138-HCD/41.comet.pin	360
+FME	265	search	results/search/PXD000138-HCD/42.comet.pin	361
+FME	266	search	results/search/PXD000138-HCD/43.comet.pin	362
+FME	267	search	results/search/PXD000138-HCD/44.comet.pin	363
+FME	268	search	results/search/PXD000138-HCD/45.comet.pin	364
+FME	269	search	results/search/PXD000138-HCD/46.comet.pin	365
+FME	270	search	results/search/PXD000138-HCD/47.comet.pin	366
+FME	271	search	results/search/PXD000138-HCD/48.comet.pin	367
+FME	272	search	results/search/PXD000138-HCD/49.comet.pin	368
+FME	273	search	results/search/PXD000138-HCD/50.comet.pin	369
+FME	274	search	results/search/PXD000138-HCD/51.comet.pin	370
+FME	275	search	results/search/PXD000138-HCD/52.comet.pin	371
+FME	276	search	results/search/PXD000138-HCD/53.comet.pin	372
+FME	277	search	results/search/PXD000138-HCD/54.comet.pin	373
+FME	278	search	results/search/PXD000138-HCD/55.comet.pin	374
+FME	279	search	results/search/PXD000138-HCD/56.comet.pin	375
+FME	280	search	results/search/PXD000138-HCD/57.comet.pin	376
+FME	281	search	results/search/PXD000138-HCD/58.comet.pin	377
+FME	282	search	results/search/PXD000138-HCD/59.comet.pin	378
+FME	283	search	results/search/PXD000138-HCD/60.comet.pin	379
+FME	284	search	results/search/PXD000138-HCD/61.comet.pin	380
+FME	285	search	results/search/PXD000138-HCD/62.comet.pin	381
+FME	286	search	results/search/PXD000138-HCD/63.comet.pin	382
+FME	287	search	results/search/PXD000138-HCD/64.comet.pin	383
+FME	288	search	results/search/PXD000138-HCD/65.comet.pin	384
+FME	289	search	results/search/PXD000138-HCD/66.comet.pin	385
+FME	290	search	results/search/PXD000138-HCD/67.comet.pin	386
+FME	291	search	results/search/PXD000138-HCD/68.comet.pin	387
+FME	292	search	results/search/PXD000138-HCD/69.comet.pin	388
+FME	293	search	results/search/PXD000138-HCD/70.comet.pin	389
+FME	294	search	results/search/PXD000138-HCD/71.comet.pin	390
+FME	295	search	results/search/PXD000138-HCD/72.comet.pin	391
+FME	296	search	results/search/PXD000138-HCD/73.comet.pin	392
+FME	297	search	results/search/PXD000138-HCD/74.comet.pin	393
+FME	298	search	results/search/PXD000138-HCD/75.comet.pin	394
+FME	299	search	results/search/PXD000138-HCD/76.comet.pin	395
+FME	300	search	results/search/PXD000138-HCD/77.comet.pin	396
+FME	301	search	results/search/PXD000138-HCD/78.comet.pin	397
+FME	302	search	results/search/PXD000138-HCD/79.comet.pin	398
+FME	303	search	results/search/PXD000138-HCD/80.comet.pin	399
+FME	304	search	results/search/PXD000138-HCD/81.comet.pin	400
+FME	305	search	results/search/PXD000138-HCD/82.comet.pin	401
+FME	306	search	results/search/PXD000138-HCD/83.comet.pin	402
+FME	307	search	results/search/PXD000138-HCD/84.comet.pin	403
+FME	308	search	results/search/PXD000138-HCD/85.comet.pin	404
+FME	309	search	results/search/PXD000138-HCD/86.comet.pin	405
+FME	310	search	results/search/PXD000138-HCD/87.comet.pin	406
+FME	311	search	results/search/PXD000138-HCD/88.comet.pin	407
+FME	312	search	results/search/PXD000138-HCD/89.comet.pin	408
+FME	313	search	results/search/PXD000138-HCD/90.comet.pin	409
+FME	314	search	results/search/PXD000138-HCD/91.comet.pin	410
+FME	315	search	results/search/PXD000138-HCD/92.comet.pin	411
+FME	316	search	results/search/PXD000138-HCD/93.comet.pin	412
+FME	317	search	results/search/PXD000138-HCD/94.comet.pin	413
+FME	318	search	results/search/PXD000138-HCD/95.comet.pin	414
+FME	319	search	results/search/PXD000138-HCD/96.comet.pin	415
+FME	320	raw	results/samples/PXD000138-HCD/1.raw
+FME	321	raw	results/samples/PXD000138-HCD/2.raw
+FME	322	raw	results/samples/PXD000138-HCD/3.raw
+FME	323	raw	results/samples/PXD000138-HCD/4.raw
+FME	324	raw	results/samples/PXD000138-HCD/5.raw
+FME	325	raw	results/samples/PXD000138-HCD/6.raw
+FME	326	raw	results/samples/PXD000138-HCD/7.raw
+FME	327	raw	results/samples/PXD000138-HCD/8.raw
+FME	328	raw	results/samples/PXD000138-HCD/9.raw
+FME	329	raw	results/samples/PXD000138-HCD/10.raw
+FME	330	raw	results/samples/PXD000138-HCD/11.raw
+FME	331	raw	results/samples/PXD000138-HCD/12.raw
+FME	332	raw	results/samples/PXD000138-HCD/13.raw
+FME	333	raw	results/samples/PXD000138-HCD/14.raw
+FME	334	raw	results/samples/PXD000138-HCD/15.raw
+FME	335	raw	results/samples/PXD000138-HCD/16.raw
+FME	336	raw	results/samples/PXD000138-HCD/17.raw
+FME	337	raw	results/samples/PXD000138-HCD/18.raw
+FME	338	raw	results/samples/PXD000138-HCD/19.raw
+FME	339	raw	results/samples/PXD000138-HCD/20.raw
+FME	340	raw	results/samples/PXD000138-HCD/21.raw
+FME	341	raw	results/samples/PXD000138-HCD/22.raw
+FME	342	raw	results/samples/PXD000138-HCD/23.raw
+FME	343	raw	results/samples/PXD000138-HCD/24.raw
+FME	344	raw	results/samples/PXD000138-HCD/25.raw
+FME	345	raw	results/samples/PXD000138-HCD/26.raw
+FME	346	raw	results/samples/PXD000138-HCD/27.raw
+FME	347	raw	results/samples/PXD000138-HCD/28.raw
+FME	348	raw	results/samples/PXD000138-HCD/29.raw
+FME	349	raw	results/samples/PXD000138-HCD/30.raw
+FME	350	raw	results/samples/PXD000138-HCD/31.raw
+FME	351	raw	results/samples/PXD000138-HCD/32.raw
+FME	352	raw	results/samples/PXD000138-HCD/33.raw
+FME	353	raw	results/samples/PXD000138-HCD/34.raw
+FME	354	raw	results/samples/PXD000138-HCD/35.raw
+FME	355	raw	results/samples/PXD000138-HCD/36.raw
+FME	356	raw	results/samples/PXD000138-HCD/37.raw
+FME	357	raw	results/samples/PXD000138-HCD/38.raw
+FME	358	raw	results/samples/PXD000138-HCD/39.raw
+FME	359	raw	results/samples/PXD000138-HCD/40.raw
+FME	360	raw	results/samples/PXD000138-HCD/41.raw
+FME	361	raw	results/samples/PXD000138-HCD/42.raw
+FME	362	raw	results/samples/PXD000138-HCD/43.raw
+FME	363	raw	results/samples/PXD000138-HCD/44.raw
+FME	364	raw	results/samples/PXD000138-HCD/45.raw
+FME	365	raw	results/samples/PXD000138-HCD/46.raw
+FME	366	raw	results/samples/PXD000138-HCD/47.raw
+FME	367	raw	results/samples/PXD000138-HCD/48.raw
+FME	368	raw	results/samples/PXD000138-HCD/49.raw
+FME	369	raw	results/samples/PXD000138-HCD/50.raw
+FME	370	raw	results/samples/PXD000138-HCD/51.raw
+FME	371	raw	results/samples/PXD000138-HCD/52.raw
+FME	372	raw	results/samples/PXD000138-HCD/53.raw
+FME	373	raw	results/samples/PXD000138-HCD/54.raw
+FME	374	raw	results/samples/PXD000138-HCD/55.raw
+FME	375	raw	results/samples/PXD000138-HCD/56.raw
+FME	376	raw	results/samples/PXD000138-HCD/57.raw
+FME	377	raw	results/samples/PXD000138-HCD/58.raw
+FME	378	raw	results/samples/PXD000138-HCD/59.raw
+FME	379	raw	results/samples/PXD000138-HCD/60.raw
+FME	380	raw	results/samples/PXD000138-HCD/61.raw
+FME	381	raw	results/samples/PXD000138-HCD/62.raw
+FME	382	raw	results/samples/PXD000138-HCD/63.raw
+FME	383	raw	results/samples/PXD000138-HCD/64.raw
+FME	384	raw	results/samples/PXD000138-HCD/65.raw
+FME	385	raw	results/samples/PXD000138-HCD/66.raw
+FME	386	raw	results/samples/PXD000138-HCD/67.raw
+FME	387	raw	results/samples/PXD000138-HCD/68.raw
+FME	388	raw	results/samples/PXD000138-HCD/69.raw
+FME	389	raw	results/samples/PXD000138-HCD/70.raw
+FME	390	raw	results/samples/PXD000138-HCD/71.raw
+FME	391	raw	results/samples/PXD000138-HCD/72.raw
+FME	392	raw	results/samples/PXD000138-HCD/73.raw
+FME	393	raw	results/samples/PXD000138-HCD/74.raw
+FME	394	raw	results/samples/PXD000138-HCD/75.raw
+FME	395	raw	results/samples/PXD000138-HCD/76.raw
+FME	396	raw	results/samples/PXD000138-HCD/77.raw
+FME	397	raw	results/samples/PXD000138-HCD/78.raw
+FME	398	raw	results/samples/PXD000138-HCD/79.raw
+FME	399	raw	results/samples/PXD000138-HCD/80.raw
+FME	400	raw	results/samples/PXD000138-HCD/81.raw
+FME	401	raw	results/samples/PXD000138-HCD/82.raw
+FME	402	raw	results/samples/PXD000138-HCD/83.raw
+FME	403	raw	results/samples/PXD000138-HCD/84.raw
+FME	404	raw	results/samples/PXD000138-HCD/85.raw
+FME	405	raw	results/samples/PXD000138-HCD/86.raw
+FME	406	raw	results/samples/PXD000138-HCD/87.raw
+FME	407	raw	results/samples/PXD000138-HCD/88.raw
+FME	408	raw	results/samples/PXD000138-HCD/89.raw
+FME	409	raw	results/samples/PXD000138-HCD/90.raw
+FME	410	raw	results/samples/PXD000138-HCD/91.raw
+FME	411	raw	results/samples/PXD000138-HCD/92.raw
+FME	412	raw	results/samples/PXD000138-HCD/93.raw
+FME	413	raw	results/samples/PXD000138-HCD/94.raw
+FME	414	raw	results/samples/PXD000138-HCD/95.raw
+FME	415	raw	results/samples/PXD000138-HCD/96.raw
+FME	416	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run01_FTETD_UPLC.pyascore.narrow.txt	596,687
+FME	417	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run02_FTETD_UPLC.pyascore.narrow.txt	596,688
+FME	418	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run03_FTETD_UPLC.pyascore.narrow.txt	596,689
+FME	419	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run04_FTETD_UPLC.pyascore.narrow.txt	596,690
+FME	420	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run05_FTETD_UPLC.pyascore.narrow.txt	596,691
+FME	421	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run06_FTETD_UPLC.pyascore.narrow.txt	596,692
+FME	422	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run07_FTETD_UPLC.pyascore.narrow.txt	596,693
+FME	423	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run08_FTETD_UPLC.pyascore.narrow.txt	596,694
+FME	424	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run09_FTETD_UPLC.pyascore.narrow.txt	596,695
+FME	425	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run10_FTETD_UPLC.pyascore.narrow.txt	596,696
+FME	426	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run11_FTETD_UPLC.pyascore.narrow.txt	596,697
+FME	427	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run12_FTETD_UPLC.pyascore.narrow.txt	596,698
+FME	428	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run13_FTETD_UPLC.pyascore.narrow.txt	596,699
+FME	429	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run14_FTETD_UPLC.pyascore.narrow.txt	596,700
+FME	430	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run16_FTETD_UPLC.pyascore.narrow.txt	596,701
+FME	431	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run17_FTETD_UPLC.pyascore.narrow.txt	596,702
+FME	432	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run21_FTETD_UPLC.pyascore.narrow.txt	596,703
+FME	433	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run22_FTETD_UPLC.pyascore.narrow.txt	596,704
+FME	434	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run23_FTETD_UPLC.pyascore.narrow.txt	596,705
+FME	435	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run24_FTETD_UPLC.pyascore.narrow.txt	596,706
+FME	436	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run25_FTETD_UPLC.pyascore.narrow.txt	596,707
+FME	437	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run26_FTETD_UPLC.pyascore.narrow.txt	596,708
+FME	438	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run27_FTETD_UPLC.pyascore.narrow.txt	596,709
+FME	439	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run28_FTETD_UPLC.pyascore.narrow.txt	596,710
+FME	440	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run29_FTETD_UPLC.pyascore.narrow.txt	596,711
+FME	441	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run30_FTETD_UPLC.pyascore.narrow.txt	596,712
+FME	442	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run31_FTETD_UPLC.pyascore.narrow.txt	596,713
+FME	443	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run32_FTETD_UPLC.pyascore.narrow.txt	596,714
+FME	444	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run33_FTETD_UPLC.pyascore.narrow.txt	596,715
+FME	445	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run51_FTETD_UPLC.pyascore.narrow.txt	596,716
+FME	446	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run86_FTETD_UPLC.pyascore.narrow.txt	596,717
+FME	447	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run34_FTETD_UPLC.pyascore.narrow.txt	596,718
+FME	448	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run35_FTETD_UPLC.pyascore.narrow.txt	596,719
+FME	449	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run36_FTETD_UPLC.pyascore.narrow.txt	596,720
+FME	450	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run37_FTETD_UPLC.pyascore.narrow.txt	596,721
+FME	451	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run38_FTETD_UPLC.pyascore.narrow.txt	596,722
+FME	452	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run39_FTETD_UPLC.pyascore.narrow.txt	596,723
+FME	453	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run40_FTETD_UPLC.pyascore.narrow.txt	596,724
+FME	454	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run41_FTETD_UPLC.pyascore.narrow.txt	596,725
+FME	455	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run42_FTETD_UPLC.pyascore.narrow.txt	596,726
+FME	456	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run43_FTETD_UPLC.pyascore.narrow.txt	596,727
+FME	457	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run44_FTETD_UPLC.pyascore.narrow.txt	596,728
+FME	458	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run45_FTETD_UPLC.pyascore.narrow.txt	596,729
+FME	459	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run46_FTETD_UPLC.pyascore.narrow.txt	596,730
+FME	460	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run47_FTETD_UPLC.pyascore.narrow.txt	596,731
+FME	461	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run48_FTETD_UPLC.pyascore.narrow.txt	596,732
+FME	462	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run50_FTETD_UPLC.pyascore.narrow.txt	596,733
+FME	463	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run52_FTETD_UPLC.pyascore.narrow.txt	596,734
+FME	464	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run53_FTETD_UPLC.pyascore.narrow.txt	596,735
+FME	465	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run54_FTETD_UPLC.pyascore.narrow.txt	596,736
+FME	466	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run55_FTETD_UPLC.pyascore.narrow.txt	596,737
+FME	467	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run56_FTETD_UPLC.pyascore.narrow.txt	596,738
+FME	468	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run57_FTETD_UPLC.pyascore.narrow.txt	596,739
+FME	469	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run59_FTETD_UPLC.pyascore.narrow.txt	596,740
+FME	470	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run60_FTETD_UPLC.pyascore.narrow.txt	596,741
+FME	471	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run61_FTETD_UPLC.pyascore.narrow.txt	596,742
+FME	472	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run62_FTETD_UPLC.pyascore.narrow.txt	596,743
+FME	473	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run63_FTETD_UPLC.pyascore.narrow.txt	596,744
+FME	474	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run64_FTETD_UPLC.pyascore.narrow.txt	596,745
+FME	475	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run65_FTETD_UPLC.pyascore.narrow.txt	596,746
+FME	476	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run66_FTETD_UPLC.pyascore.narrow.txt	596,747
+FME	477	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run67_FTETD_UPLC.pyascore.narrow.txt	596,748
+FME	478	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run68_FTETD_UPLC.pyascore.narrow.txt	596,749
+FME	479	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run69_FTETD_UPLC.pyascore.narrow.txt	596,750
+FME	480	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run70_FTETD_UPLC.pyascore.narrow.txt	596,751
+FME	481	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run71_FTETD_UPLC.pyascore.narrow.txt	596,752
+FME	482	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run72_FTETD_UPLC.pyascore.narrow.txt	596,753
+FME	483	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run73_FTETD_UPLC.pyascore.narrow.txt	596,754
+FME	484	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run74_FTETD_UPLC.pyascore.narrow.txt	596,755
+FME	485	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run75_FTETD_UPLC.pyascore.narrow.txt	596,756
+FME	486	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run76_FTETD_UPLC.pyascore.narrow.txt	596,757
+FME	487	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run77_FTETD_UPLC.pyascore.narrow.txt	596,758
+FME	488	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run78_FTETD_UPLC.pyascore.narrow.txt	596,759
+FME	489	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run79_FTETD_UPLC.pyascore.narrow.txt	596,760
+FME	490	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run80_FTETD_UPLC.pyascore.narrow.txt	596,761
+FME	491	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run58_FTETD_UPLC.pyascore.narrow.txt	596,762
+FME	492	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run81_FTETD_UPLC.pyascore.narrow.txt	596,763
+FME	493	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run82_FTETD_UPLC.pyascore.narrow.txt	596,764
+FME	494	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run83_FTETD_UPLC.pyascore.narrow.txt	596,765
+FME	495	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run84_FTETD_UPLC.pyascore.narrow.txt	596,766
+FME	496	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run85_FTETD_UPLC.pyascore.narrow.txt	596,767
+FME	497	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run87_FTETD_UPLC.pyascore.narrow.txt	596,768
+FME	498	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run88_FTETD_UPLC.pyascore.narrow.txt	596,769
+FME	499	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run89_FTETD_UPLC.pyascore.narrow.txt	596,770
+FME	500	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run90_FTETD_UPLC.pyascore.narrow.txt	596,771
+FME	501	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run91_FTETD_UPLC.pyascore.narrow.txt	596,772
+FME	502	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run92_FTETD_UPLC.pyascore.narrow.txt	596,773
+FME	503	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run93_FTETD_UPLC.pyascore.narrow.txt	596,774
+FME	504	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run94_FTETD_UPLC.pyascore.narrow.txt	596,775
+FME	505	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run95_FTETD_UPLC.pyascore.narrow.txt	596,776
+FME	506	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run01_FTETD_UPLC.pyascore.wide.txt	596,687
+FME	507	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run02_FTETD_UPLC.pyascore.wide.txt	596,688
+FME	508	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run03_FTETD_UPLC.pyascore.wide.txt	596,689
+FME	509	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run04_FTETD_UPLC.pyascore.wide.txt	596,690
+FME	510	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run05_FTETD_UPLC.pyascore.wide.txt	596,691
+FME	511	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run06_FTETD_UPLC.pyascore.wide.txt	596,692
+FME	512	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run07_FTETD_UPLC.pyascore.wide.txt	596,693
+FME	513	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run08_FTETD_UPLC.pyascore.wide.txt	596,694
+FME	514	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run09_FTETD_UPLC.pyascore.wide.txt	596,695
+FME	515	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run10_FTETD_UPLC.pyascore.wide.txt	596,696
+FME	516	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run11_FTETD_UPLC.pyascore.wide.txt	596,697
+FME	517	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run12_FTETD_UPLC.pyascore.wide.txt	596,698
+FME	518	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run13_FTETD_UPLC.pyascore.wide.txt	596,699
+FME	519	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run14_FTETD_UPLC.pyascore.wide.txt	596,700
+FME	520	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run16_FTETD_UPLC.pyascore.wide.txt	596,701
+FME	521	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run17_FTETD_UPLC.pyascore.wide.txt	596,702
+FME	522	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run21_FTETD_UPLC.pyascore.wide.txt	596,703
+FME	523	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run22_FTETD_UPLC.pyascore.wide.txt	596,704
+FME	524	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run23_FTETD_UPLC.pyascore.wide.txt	596,705
+FME	525	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run24_FTETD_UPLC.pyascore.wide.txt	596,706
+FME	526	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run25_FTETD_UPLC.pyascore.wide.txt	596,707
+FME	527	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run26_FTETD_UPLC.pyascore.wide.txt	596,708
+FME	528	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run27_FTETD_UPLC.pyascore.wide.txt	596,709
+FME	529	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run28_FTETD_UPLC.pyascore.wide.txt	596,710
+FME	530	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run29_FTETD_UPLC.pyascore.wide.txt	596,711
+FME	531	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run30_FTETD_UPLC.pyascore.wide.txt	596,712
+FME	532	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run31_FTETD_UPLC.pyascore.wide.txt	596,713
+FME	533	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run32_FTETD_UPLC.pyascore.wide.txt	596,714
+FME	534	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run33_FTETD_UPLC.pyascore.wide.txt	596,715
+FME	535	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run51_FTETD_UPLC.pyascore.wide.txt	596,716
+FME	536	search	results/localization/PXD000138-ETD/OR4_120313_LIM_Pep38_run86_FTETD_UPLC.pyascore.wide.txt	596,717
+FME	537	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run34_FTETD_UPLC.pyascore.wide.txt	596,718
+FME	538	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run35_FTETD_UPLC.pyascore.wide.txt	596,719
+FME	539	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run36_FTETD_UPLC.pyascore.wide.txt	596,720
+FME	540	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run37_FTETD_UPLC.pyascore.wide.txt	596,721
+FME	541	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run38_FTETD_UPLC.pyascore.wide.txt	596,722
+FME	542	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run39_FTETD_UPLC.pyascore.wide.txt	596,723
+FME	543	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run40_FTETD_UPLC.pyascore.wide.txt	596,724
+FME	544	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run41_FTETD_UPLC.pyascore.wide.txt	596,725
+FME	545	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run42_FTETD_UPLC.pyascore.wide.txt	596,726
+FME	546	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run43_FTETD_UPLC.pyascore.wide.txt	596,727
+FME	547	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run44_FTETD_UPLC.pyascore.wide.txt	596,728
+FME	548	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run45_FTETD_UPLC.pyascore.wide.txt	596,729
+FME	549	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run46_FTETD_UPLC.pyascore.wide.txt	596,730
+FME	550	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run47_FTETD_UPLC.pyascore.wide.txt	596,731
+FME	551	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run48_FTETD_UPLC.pyascore.wide.txt	596,732
+FME	552	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run50_FTETD_UPLC.pyascore.wide.txt	596,733
+FME	553	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run52_FTETD_UPLC.pyascore.wide.txt	596,734
+FME	554	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run53_FTETD_UPLC.pyascore.wide.txt	596,735
+FME	555	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run54_FTETD_UPLC.pyascore.wide.txt	596,736
+FME	556	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run55_FTETD_UPLC.pyascore.wide.txt	596,737
+FME	557	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run56_FTETD_UPLC.pyascore.wide.txt	596,738
+FME	558	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run57_FTETD_UPLC.pyascore.wide.txt	596,739
+FME	559	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run59_FTETD_UPLC.pyascore.wide.txt	596,740
+FME	560	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run60_FTETD_UPLC.pyascore.wide.txt	596,741
+FME	561	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run61_FTETD_UPLC.pyascore.wide.txt	596,742
+FME	562	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run62_FTETD_UPLC.pyascore.wide.txt	596,743
+FME	563	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run63_FTETD_UPLC.pyascore.wide.txt	596,744
+FME	564	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run64_FTETD_UPLC.pyascore.wide.txt	596,745
+FME	565	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run65_FTETD_UPLC.pyascore.wide.txt	596,746
+FME	566	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run66_FTETD_UPLC.pyascore.wide.txt	596,747
+FME	567	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run67_FTETD_UPLC.pyascore.wide.txt	596,748
+FME	568	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run68_FTETD_UPLC.pyascore.wide.txt	596,749
+FME	569	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run69_FTETD_UPLC.pyascore.wide.txt	596,750
+FME	570	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run70_FTETD_UPLC.pyascore.wide.txt	596,751
+FME	571	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run71_FTETD_UPLC.pyascore.wide.txt	596,752
+FME	572	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run72_FTETD_UPLC.pyascore.wide.txt	596,753
+FME	573	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run73_FTETD_UPLC.pyascore.wide.txt	596,754
+FME	574	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run74_FTETD_UPLC.pyascore.wide.txt	596,755
+FME	575	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run75_FTETD_UPLC.pyascore.wide.txt	596,756
+FME	576	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run76_FTETD_UPLC.pyascore.wide.txt	596,757
+FME	577	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run77_FTETD_UPLC.pyascore.wide.txt	596,758
+FME	578	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run78_FTETD_UPLC.pyascore.wide.txt	596,759
+FME	579	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run79_FTETD_UPLC.pyascore.wide.txt	596,760
+FME	580	search	results/localization/PXD000138-ETD/OR4_120321_LIM_Pep38_run80_FTETD_UPLC.pyascore.wide.txt	596,761
+FME	581	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run58_FTETD_UPLC.pyascore.wide.txt	596,762
+FME	582	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run81_FTETD_UPLC.pyascore.wide.txt	596,763
+FME	583	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run82_FTETD_UPLC.pyascore.wide.txt	596,764
+FME	584	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run83_FTETD_UPLC.pyascore.wide.txt	596,765
+FME	585	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run84_FTETD_UPLC.pyascore.wide.txt	596,766
+FME	586	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run85_FTETD_UPLC.pyascore.wide.txt	596,767
+FME	587	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run87_FTETD_UPLC.pyascore.wide.txt	596,768
+FME	588	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run88_FTETD_UPLC.pyascore.wide.txt	596,769
+FME	589	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run89_FTETD_UPLC.pyascore.wide.txt	596,770
+FME	590	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run90_FTETD_UPLC.pyascore.wide.txt	596,771
+FME	591	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run91_FTETD_UPLC.pyascore.wide.txt	596,772
+FME	592	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run92_FTETD_UPLC.pyascore.wide.txt	596,773
+FME	593	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run93_FTETD_UPLC.pyascore.wide.txt	596,774
+FME	594	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run94_FTETD_UPLC.pyascore.wide.txt	596,775
+FME	595	search	results/localization/PXD000138-ETD/OR4_120330_LIM_Pep38_run95_FTETD_UPLC.pyascore.wide.txt	596,776
+FME	596	search	results/search/PXD000138-ETD/PXD000138-ETD.mokapot.psms.txt	597,598,599,600,601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,622,623,624,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639,640,641,642,643,644,645,646,647,648,649,650,651,652,653,654,655,656,657,658,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,675,676,677,678,679,680,681,682,683,684,685,686,687,688,689,690,691,692,693,694,695,696,697,698,699,700,701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720,721,722,723,724,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753,754,755,756,757,758,759,760,761,762,763,764,765,766,767,768,769,770,771,772,773,774,775,776
+FME	597	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run01_FTETD_UPLC.comet.pin	687
+FME	598	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run02_FTETD_UPLC.comet.pin	688
+FME	599	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run03_FTETD_UPLC.comet.pin	689
+FME	600	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run04_FTETD_UPLC.comet.pin	690
+FME	601	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run05_FTETD_UPLC.comet.pin	691
+FME	602	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run06_FTETD_UPLC.comet.pin	692
+FME	603	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run07_FTETD_UPLC.comet.pin	693
+FME	604	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run08_FTETD_UPLC.comet.pin	694
+FME	605	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run09_FTETD_UPLC.comet.pin	695
+FME	606	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run10_FTETD_UPLC.comet.pin	696
+FME	607	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run11_FTETD_UPLC.comet.pin	697
+FME	608	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run12_FTETD_UPLC.comet.pin	698
+FME	609	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run13_FTETD_UPLC.comet.pin	699
+FME	610	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run14_FTETD_UPLC.comet.pin	700
+FME	611	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run16_FTETD_UPLC.comet.pin	701
+FME	612	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run17_FTETD_UPLC.comet.pin	702
+FME	613	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run21_FTETD_UPLC.comet.pin	703
+FME	614	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run22_FTETD_UPLC.comet.pin	704
+FME	615	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run23_FTETD_UPLC.comet.pin	705
+FME	616	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run24_FTETD_UPLC.comet.pin	706
+FME	617	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run25_FTETD_UPLC.comet.pin	707
+FME	618	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run26_FTETD_UPLC.comet.pin	708
+FME	619	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run27_FTETD_UPLC.comet.pin	709
+FME	620	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run28_FTETD_UPLC.comet.pin	710
+FME	621	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run29_FTETD_UPLC.comet.pin	711
+FME	622	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run30_FTETD_UPLC.comet.pin	712
+FME	623	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run31_FTETD_UPLC.comet.pin	713
+FME	624	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run32_FTETD_UPLC.comet.pin	714
+FME	625	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run33_FTETD_UPLC.comet.pin	715
+FME	626	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run51_FTETD_UPLC.comet.pin	716
+FME	627	search	results/search/PXD000138-ETD/OR4_120313_LIM_Pep38_run86_FTETD_UPLC.comet.pin	717
+FME	628	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run34_FTETD_UPLC.comet.pin	718
+FME	629	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run35_FTETD_UPLC.comet.pin	719
+FME	630	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run36_FTETD_UPLC.comet.pin	720
+FME	631	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run37_FTETD_UPLC.comet.pin	721
+FME	632	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run38_FTETD_UPLC.comet.pin	722
+FME	633	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run39_FTETD_UPLC.comet.pin	723
+FME	634	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run40_FTETD_UPLC.comet.pin	724
+FME	635	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run41_FTETD_UPLC.comet.pin	725
+FME	636	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run42_FTETD_UPLC.comet.pin	726
+FME	637	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run43_FTETD_UPLC.comet.pin	727
+FME	638	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run44_FTETD_UPLC.comet.pin	728
+FME	639	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run45_FTETD_UPLC.comet.pin	729
+FME	640	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run46_FTETD_UPLC.comet.pin	730
+FME	641	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run47_FTETD_UPLC.comet.pin	731
+FME	642	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run48_FTETD_UPLC.comet.pin	732
+FME	643	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run50_FTETD_UPLC.comet.pin	733
+FME	644	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run52_FTETD_UPLC.comet.pin	734
+FME	645	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run53_FTETD_UPLC.comet.pin	735
+FME	646	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run54_FTETD_UPLC.comet.pin	736
+FME	647	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run55_FTETD_UPLC.comet.pin	737
+FME	648	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run56_FTETD_UPLC.comet.pin	738
+FME	649	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run57_FTETD_UPLC.comet.pin	739
+FME	650	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run59_FTETD_UPLC.comet.pin	740
+FME	651	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run60_FTETD_UPLC.comet.pin	741
+FME	652	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run61_FTETD_UPLC.comet.pin	742
+FME	653	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run62_FTETD_UPLC.comet.pin	743
+FME	654	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run63_FTETD_UPLC.comet.pin	744
+FME	655	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run64_FTETD_UPLC.comet.pin	745
+FME	656	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run65_FTETD_UPLC.comet.pin	746
+FME	657	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run66_FTETD_UPLC.comet.pin	747
+FME	658	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run67_FTETD_UPLC.comet.pin	748
+FME	659	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run68_FTETD_UPLC.comet.pin	749
+FME	660	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run69_FTETD_UPLC.comet.pin	750
+FME	661	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run70_FTETD_UPLC.comet.pin	751
+FME	662	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run71_FTETD_UPLC.comet.pin	752
+FME	663	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run72_FTETD_UPLC.comet.pin	753
+FME	664	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run73_FTETD_UPLC.comet.pin	754
+FME	665	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run74_FTETD_UPLC.comet.pin	755
+FME	666	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run75_FTETD_UPLC.comet.pin	756
+FME	667	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run76_FTETD_UPLC.comet.pin	757
+FME	668	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run77_FTETD_UPLC.comet.pin	758
+FME	669	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run78_FTETD_UPLC.comet.pin	759
+FME	670	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run79_FTETD_UPLC.comet.pin	760
+FME	671	search	results/search/PXD000138-ETD/OR4_120321_LIM_Pep38_run80_FTETD_UPLC.comet.pin	761
+FME	672	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run58_FTETD_UPLC.comet.pin	762
+FME	673	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run81_FTETD_UPLC.comet.pin	763
+FME	674	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run82_FTETD_UPLC.comet.pin	764
+FME	675	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run83_FTETD_UPLC.comet.pin	765
+FME	676	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run84_FTETD_UPLC.comet.pin	766
+FME	677	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run85_FTETD_UPLC.comet.pin	767
+FME	678	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run87_FTETD_UPLC.comet.pin	768
+FME	679	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run88_FTETD_UPLC.comet.pin	769
+FME	680	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run89_FTETD_UPLC.comet.pin	770
+FME	681	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run90_FTETD_UPLC.comet.pin	771
+FME	682	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run91_FTETD_UPLC.comet.pin	772
+FME	683	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run92_FTETD_UPLC.comet.pin	773
+FME	684	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run93_FTETD_UPLC.comet.pin	774
+FME	685	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run94_FTETD_UPLC.comet.pin	775
+FME	686	search	results/search/PXD000138-ETD/OR4_120330_LIM_Pep38_run95_FTETD_UPLC.comet.pin	776
+FME	687	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run01_FTETD_UPLC.raw
+FME	688	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run02_FTETD_UPLC.raw
+FME	689	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run03_FTETD_UPLC.raw
+FME	690	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run04_FTETD_UPLC.raw
+FME	691	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run05_FTETD_UPLC.raw
+FME	692	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run06_FTETD_UPLC.raw
+FME	693	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run07_FTETD_UPLC.raw
+FME	694	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run08_FTETD_UPLC.raw
+FME	695	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run09_FTETD_UPLC.raw
+FME	696	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run10_FTETD_UPLC.raw
+FME	697	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run11_FTETD_UPLC.raw
+FME	698	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run12_FTETD_UPLC.raw
+FME	699	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run13_FTETD_UPLC.raw
+FME	700	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run14_FTETD_UPLC.raw
+FME	701	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run16_FTETD_UPLC.raw
+FME	702	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run17_FTETD_UPLC.raw
+FME	703	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run21_FTETD_UPLC.raw
+FME	704	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run22_FTETD_UPLC.raw
+FME	705	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run23_FTETD_UPLC.raw
+FME	706	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run24_FTETD_UPLC.raw
+FME	707	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run25_FTETD_UPLC.raw
+FME	708	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run26_FTETD_UPLC.raw
+FME	709	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run27_FTETD_UPLC.raw
+FME	710	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run28_FTETD_UPLC.raw
+FME	711	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run29_FTETD_UPLC.raw
+FME	712	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run30_FTETD_UPLC.raw
+FME	713	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run31_FTETD_UPLC.raw
+FME	714	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run32_FTETD_UPLC.raw
+FME	715	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run33_FTETD_UPLC.raw
+FME	716	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run51_FTETD_UPLC.raw
+FME	717	raw	results/samples/PXD000138-ETD/OR4_120313_LIM_Pep38_run86_FTETD_UPLC.raw
+FME	718	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run34_FTETD_UPLC.raw
+FME	719	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run35_FTETD_UPLC.raw
+FME	720	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run36_FTETD_UPLC.raw
+FME	721	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run37_FTETD_UPLC.raw
+FME	722	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run38_FTETD_UPLC.raw
+FME	723	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run39_FTETD_UPLC.raw
+FME	724	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run40_FTETD_UPLC.raw
+FME	725	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run41_FTETD_UPLC.raw
+FME	726	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run42_FTETD_UPLC.raw
+FME	727	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run43_FTETD_UPLC.raw
+FME	728	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run44_FTETD_UPLC.raw
+FME	729	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run45_FTETD_UPLC.raw
+FME	730	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run46_FTETD_UPLC.raw
+FME	731	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run47_FTETD_UPLC.raw
+FME	732	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run48_FTETD_UPLC.raw
+FME	733	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run50_FTETD_UPLC.raw
+FME	734	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run52_FTETD_UPLC.raw
+FME	735	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run53_FTETD_UPLC.raw
+FME	736	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run54_FTETD_UPLC.raw
+FME	737	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run55_FTETD_UPLC.raw
+FME	738	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run56_FTETD_UPLC.raw
+FME	739	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run57_FTETD_UPLC.raw
+FME	740	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run59_FTETD_UPLC.raw
+FME	741	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run60_FTETD_UPLC.raw
+FME	742	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run61_FTETD_UPLC.raw
+FME	743	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run62_FTETD_UPLC.raw
+FME	744	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run63_FTETD_UPLC.raw
+FME	745	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run64_FTETD_UPLC.raw
+FME	746	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run65_FTETD_UPLC.raw
+FME	747	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run66_FTETD_UPLC.raw
+FME	748	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run67_FTETD_UPLC.raw
+FME	749	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run68_FTETD_UPLC.raw
+FME	750	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run69_FTETD_UPLC.raw
+FME	751	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run70_FTETD_UPLC.raw
+FME	752	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run71_FTETD_UPLC.raw
+FME	753	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run72_FTETD_UPLC.raw
+FME	754	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run73_FTETD_UPLC.raw
+FME	755	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run74_FTETD_UPLC.raw
+FME	756	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run75_FTETD_UPLC.raw
+FME	757	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run76_FTETD_UPLC.raw
+FME	758	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run77_FTETD_UPLC.raw
+FME	759	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run78_FTETD_UPLC.raw
+FME	760	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run79_FTETD_UPLC.raw
+FME	761	raw	results/samples/PXD000138-ETD/OR4_120321_LIM_Pep38_run80_FTETD_UPLC.raw
+FME	762	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run58_FTETD_UPLC.raw
+FME	763	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run81_FTETD_UPLC.raw
+FME	764	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run82_FTETD_UPLC.raw
+FME	765	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run83_FTETD_UPLC.raw
+FME	766	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run84_FTETD_UPLC.raw
+FME	767	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run85_FTETD_UPLC.raw
+FME	768	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run87_FTETD_UPLC.raw
+FME	769	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run88_FTETD_UPLC.raw
+FME	770	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run89_FTETD_UPLC.raw
+FME	771	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run90_FTETD_UPLC.raw
+FME	772	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run91_FTETD_UPLC.raw
+FME	773	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run92_FTETD_UPLC.raw
+FME	774	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run93_FTETD_UPLC.raw
+FME	775	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run94_FTETD_UPLC.raw
+FME	776	raw	results/samples/PXD000138-ETD/OR4_120330_LIM_Pep38_run95_FTETD_UPLC.raw
+FME	777	search	results/localization/PXD000759/lib01_direct.pyascore.narrow.txt	969,1066
+FME	778	search	results/localization/PXD000759/lib02_direct.pyascore.narrow.txt	969,1067
+FME	779	search	results/localization/PXD000759/lib03_direct.pyascore.narrow.txt	969,1068
+FME	780	search	results/localization/PXD000759/lib04_direct.pyascore.narrow.txt	969,1069
+FME	781	search	results/localization/PXD000759/lib05_direct.pyascore.narrow.txt	969,1070
+FME	782	search	results/localization/PXD000759/lib06_direct.pyascore.narrow.txt	969,1071
+FME	783	search	results/localization/PXD000759/lib07_direct.pyascore.narrow.txt	969,1072
+FME	784	search	results/localization/PXD000759/lib08_direct.pyascore.narrow.txt	969,1073
+FME	785	search	results/localization/PXD000759/lib09_direct.pyascore.narrow.txt	969,1074
+FME	786	search	results/localization/PXD000759/lib10_direct.pyascore.narrow.txt	969,1075
+FME	787	search	results/localization/PXD000759/lib11_direct.pyascore.narrow.txt	969,1076
+FME	788	search	results/localization/PXD000759/lib12_direct.pyascore.narrow.txt	969,1077
+FME	789	search	results/localization/PXD000759/lib13_direct.pyascore.narrow.txt	969,1078
+FME	790	search	results/localization/PXD000759/lib14_direct.pyascore.narrow.txt	969,1079
+FME	791	search	results/localization/PXD000759/lib15_direct.pyascore.narrow.txt	969,1080
+FME	792	search	results/localization/PXD000759/lib16_direct.pyascore.narrow.txt	969,1081
+FME	793	search	results/localization/PXD000759/lib17_direct.pyascore.narrow.txt	969,1082
+FME	794	search	results/localization/PXD000759/lib18_direct.pyascore.narrow.txt	969,1083
+FME	795	search	results/localization/PXD000759/lib19_direct.pyascore.narrow.txt	969,1084
+FME	796	search	results/localization/PXD000759/lib20_direct.pyascore.narrow.txt	969,1085
+FME	797	search	results/localization/PXD000759/lib21_direct.pyascore.narrow.txt	969,1086
+FME	798	search	results/localization/PXD000759/lib22_direct.pyascore.narrow.txt	969,1087
+FME	799	search	results/localization/PXD000759/lib23_direct.pyascore.narrow.txt	969,1088
+FME	800	search	results/localization/PXD000759/lib24_direct.pyascore.narrow.txt	969,1089
+FME	801	search	results/localization/PXD000759/lib25_direct.pyascore.narrow.txt	969,1090
+FME	802	search	results/localization/PXD000759/lib26_direct.pyascore.narrow.txt	969,1091
+FME	803	search	results/localization/PXD000759/lib27_direct.pyascore.narrow.txt	969,1092
+FME	804	search	results/localization/PXD000759/lib28_direct.pyascore.narrow.txt	969,1093
+FME	805	search	results/localization/PXD000759/lib29_direct.pyascore.narrow.txt	969,1094
+FME	806	search	results/localization/PXD000759/lib30_direct.pyascore.narrow.txt	969,1095
+FME	807	search	results/localization/PXD000759/lib31_direct.pyascore.narrow.txt	969,1096
+FME	808	search	results/localization/PXD000759/lib32_direct.pyascore.narrow.txt	969,1097
+FME	809	search	results/localization/PXD000759/lib33_direct.pyascore.narrow.txt	969,1098
+FME	810	search	results/localization/PXD000759/lib34_direct.pyascore.narrow.txt	969,1099
+FME	811	search	results/localization/PXD000759/lib35_direct.pyascore.narrow.txt	969,1100
+FME	812	search	results/localization/PXD000759/lib36_direct.pyascore.narrow.txt	969,1101
+FME	813	search	results/localization/PXD000759/lib37_direct.pyascore.narrow.txt	969,1102
+FME	814	search	results/localization/PXD000759/lib38_direct.pyascore.narrow.txt	969,1103
+FME	815	search	results/localization/PXD000759/lib39_direct.pyascore.narrow.txt	969,1104
+FME	816	search	results/localization/PXD000759/lib40_direct.pyascore.narrow.txt	969,1105
+FME	817	search	results/localization/PXD000759/lib41_direct.pyascore.narrow.txt	969,1106
+FME	818	search	results/localization/PXD000759/lib42_direct.pyascore.narrow.txt	969,1107
+FME	819	search	results/localization/PXD000759/lib43_direct.pyascore.narrow.txt	969,1108
+FME	820	search	results/localization/PXD000759/lib44_direct.pyascore.narrow.txt	969,1109
+FME	821	search	results/localization/PXD000759/lib45_direct.pyascore.narrow.txt	969,1110
+FME	822	search	results/localization/PXD000759/lib46_direct.pyascore.narrow.txt	969,1111
+FME	823	search	results/localization/PXD000759/lib47_direct.pyascore.narrow.txt	969,1112
+FME	824	search	results/localization/PXD000759/lib48_direct.pyascore.narrow.txt	969,1113
+FME	825	search	results/localization/PXD000759/lib49_direct.pyascore.narrow.txt	969,1114
+FME	826	search	results/localization/PXD000759/lib50_direct.pyascore.narrow.txt	969,1115
+FME	827	search	results/localization/PXD000759/lib51_direct.pyascore.narrow.txt	969,1116
+FME	828	search	results/localization/PXD000759/lib52_direct.pyascore.narrow.txt	969,1117
+FME	829	search	results/localization/PXD000759/lib53_direct.pyascore.narrow.txt	969,1118
+FME	830	search	results/localization/PXD000759/lib54_direct.pyascore.narrow.txt	969,1119
+FME	831	search	results/localization/PXD000759/lib55_direct.pyascore.narrow.txt	969,1120
+FME	832	search	results/localization/PXD000759/lib56_direct.pyascore.narrow.txt	969,1121
+FME	833	search	results/localization/PXD000759/lib57_direct.pyascore.narrow.txt	969,1122
+FME	834	search	results/localization/PXD000759/lib58_direct.pyascore.narrow.txt	969,1123
+FME	835	search	results/localization/PXD000759/lib59_direct.pyascore.narrow.txt	969,1124
+FME	836	search	results/localization/PXD000759/lib60_direct.pyascore.narrow.txt	969,1125
+FME	837	search	results/localization/PXD000759/lib61_direct.pyascore.narrow.txt	969,1126
+FME	838	search	results/localization/PXD000759/lib62_direct.pyascore.narrow.txt	969,1127
+FME	839	search	results/localization/PXD000759/lib63_direct.pyascore.narrow.txt	969,1128
+FME	840	search	results/localization/PXD000759/lib64_direct.pyascore.narrow.txt	969,1129
+FME	841	search	results/localization/PXD000759/lib65_direct.pyascore.narrow.txt	969,1130
+FME	842	search	results/localization/PXD000759/lib66_direct.pyascore.narrow.txt	969,1131
+FME	843	search	results/localization/PXD000759/lib67_direct.pyascore.narrow.txt	969,1132
+FME	844	search	results/localization/PXD000759/lib68_direct.pyascore.narrow.txt	969,1133
+FME	845	search	results/localization/PXD000759/lib69_direct.pyascore.narrow.txt	969,1134
+FME	846	search	results/localization/PXD000759/lib70_direct.pyascore.narrow.txt	969,1135
+FME	847	search	results/localization/PXD000759/lib71_direct.pyascore.narrow.txt	969,1136
+FME	848	search	results/localization/PXD000759/lib72_direct.pyascore.narrow.txt	969,1137
+FME	849	search	results/localization/PXD000759/lib73_direct.pyascore.narrow.txt	969,1138
+FME	850	search	results/localization/PXD000759/lib74_direct.pyascore.narrow.txt	969,1139
+FME	851	search	results/localization/PXD000759/lib75_direct.pyascore.narrow.txt	969,1140
+FME	852	search	results/localization/PXD000759/lib76_direct.pyascore.narrow.txt	969,1141
+FME	853	search	results/localization/PXD000759/lib77_direct.pyascore.narrow.txt	969,1142
+FME	854	search	results/localization/PXD000759/lib78_direct.pyascore.narrow.txt	969,1143
+FME	855	search	results/localization/PXD000759/lib79_direct.pyascore.narrow.txt	969,1144
+FME	856	search	results/localization/PXD000759/lib80_direct.pyascore.narrow.txt	969,1145
+FME	857	search	results/localization/PXD000759/lib81_direct.pyascore.narrow.txt	969,1146
+FME	858	search	results/localization/PXD000759/lib82_direct.pyascore.narrow.txt	969,1147
+FME	859	search	results/localization/PXD000759/lib83_direct.pyascore.narrow.txt	969,1148
+FME	860	search	results/localization/PXD000759/lib84_direct.pyascore.narrow.txt	969,1149
+FME	861	search	results/localization/PXD000759/lib85_direct.pyascore.narrow.txt	969,1150
+FME	862	search	results/localization/PXD000759/lib86_direct.pyascore.narrow.txt	969,1151
+FME	863	search	results/localization/PXD000759/lib87_direct.pyascore.narrow.txt	969,1152
+FME	864	search	results/localization/PXD000759/lib88_direct.pyascore.narrow.txt	969,1153
+FME	865	search	results/localization/PXD000759/lib89_direct.pyascore.narrow.txt	969,1154
+FME	866	search	results/localization/PXD000759/lib90_direct.pyascore.narrow.txt	969,1155
+FME	867	search	results/localization/PXD000759/lib91_direct.pyascore.narrow.txt	969,1156
+FME	868	search	results/localization/PXD000759/lib92_direct.pyascore.narrow.txt	969,1157
+FME	869	search	results/localization/PXD000759/lib93_direct.pyascore.narrow.txt	969,1158
+FME	870	search	results/localization/PXD000759/lib94_direct.pyascore.narrow.txt	969,1159
+FME	871	search	results/localization/PXD000759/lib95_direct.pyascore.narrow.txt	969,1160
+FME	872	search	results/localization/PXD000759/lib96_direct.pyascore.narrow.txt	969,1161
+FME	873	search	results/localization/PXD000759/lib01_direct.pyascore.wide.txt	969,1066
+FME	874	search	results/localization/PXD000759/lib02_direct.pyascore.wide.txt	969,1067
+FME	875	search	results/localization/PXD000759/lib03_direct.pyascore.wide.txt	969,1068
+FME	876	search	results/localization/PXD000759/lib04_direct.pyascore.wide.txt	969,1069
+FME	877	search	results/localization/PXD000759/lib05_direct.pyascore.wide.txt	969,1070
+FME	878	search	results/localization/PXD000759/lib06_direct.pyascore.wide.txt	969,1071
+FME	879	search	results/localization/PXD000759/lib07_direct.pyascore.wide.txt	969,1072
+FME	880	search	results/localization/PXD000759/lib08_direct.pyascore.wide.txt	969,1073
+FME	881	search	results/localization/PXD000759/lib09_direct.pyascore.wide.txt	969,1074
+FME	882	search	results/localization/PXD000759/lib10_direct.pyascore.wide.txt	969,1075
+FME	883	search	results/localization/PXD000759/lib11_direct.pyascore.wide.txt	969,1076
+FME	884	search	results/localization/PXD000759/lib12_direct.pyascore.wide.txt	969,1077
+FME	885	search	results/localization/PXD000759/lib13_direct.pyascore.wide.txt	969,1078
+FME	886	search	results/localization/PXD000759/lib14_direct.pyascore.wide.txt	969,1079
+FME	887	search	results/localization/PXD000759/lib15_direct.pyascore.wide.txt	969,1080
+FME	888	search	results/localization/PXD000759/lib16_direct.pyascore.wide.txt	969,1081
+FME	889	search	results/localization/PXD000759/lib17_direct.pyascore.wide.txt	969,1082
+FME	890	search	results/localization/PXD000759/lib18_direct.pyascore.wide.txt	969,1083
+FME	891	search	results/localization/PXD000759/lib19_direct.pyascore.wide.txt	969,1084
+FME	892	search	results/localization/PXD000759/lib20_direct.pyascore.wide.txt	969,1085
+FME	893	search	results/localization/PXD000759/lib21_direct.pyascore.wide.txt	969,1086
+FME	894	search	results/localization/PXD000759/lib22_direct.pyascore.wide.txt	969,1087
+FME	895	search	results/localization/PXD000759/lib23_direct.pyascore.wide.txt	969,1088
+FME	896	search	results/localization/PXD000759/lib24_direct.pyascore.wide.txt	969,1089
+FME	897	search	results/localization/PXD000759/lib25_direct.pyascore.wide.txt	969,1090
+FME	898	search	results/localization/PXD000759/lib26_direct.pyascore.wide.txt	969,1091
+FME	899	search	results/localization/PXD000759/lib27_direct.pyascore.wide.txt	969,1092
+FME	900	search	results/localization/PXD000759/lib28_direct.pyascore.wide.txt	969,1093
+FME	901	search	results/localization/PXD000759/lib29_direct.pyascore.wide.txt	969,1094
+FME	902	search	results/localization/PXD000759/lib30_direct.pyascore.wide.txt	969,1095
+FME	903	search	results/localization/PXD000759/lib31_direct.pyascore.wide.txt	969,1096
+FME	904	search	results/localization/PXD000759/lib32_direct.pyascore.wide.txt	969,1097
+FME	905	search	results/localization/PXD000759/lib33_direct.pyascore.wide.txt	969,1098
+FME	906	search	results/localization/PXD000759/lib34_direct.pyascore.wide.txt	969,1099
+FME	907	search	results/localization/PXD000759/lib35_direct.pyascore.wide.txt	969,1100
+FME	908	search	results/localization/PXD000759/lib36_direct.pyascore.wide.txt	969,1101
+FME	909	search	results/localization/PXD000759/lib37_direct.pyascore.wide.txt	969,1102
+FME	910	search	results/localization/PXD000759/lib38_direct.pyascore.wide.txt	969,1103
+FME	911	search	results/localization/PXD000759/lib39_direct.pyascore.wide.txt	969,1104
+FME	912	search	results/localization/PXD000759/lib40_direct.pyascore.wide.txt	969,1105
+FME	913	search	results/localization/PXD000759/lib41_direct.pyascore.wide.txt	969,1106
+FME	914	search	results/localization/PXD000759/lib42_direct.pyascore.wide.txt	969,1107
+FME	915	search	results/localization/PXD000759/lib43_direct.pyascore.wide.txt	969,1108
+FME	916	search	results/localization/PXD000759/lib44_direct.pyascore.wide.txt	969,1109
+FME	917	search	results/localization/PXD000759/lib45_direct.pyascore.wide.txt	969,1110
+FME	918	search	results/localization/PXD000759/lib46_direct.pyascore.wide.txt	969,1111
+FME	919	search	results/localization/PXD000759/lib47_direct.pyascore.wide.txt	969,1112
+FME	920	search	results/localization/PXD000759/lib48_direct.pyascore.wide.txt	969,1113
+FME	921	search	results/localization/PXD000759/lib49_direct.pyascore.wide.txt	969,1114
+FME	922	search	results/localization/PXD000759/lib50_direct.pyascore.wide.txt	969,1115
+FME	923	search	results/localization/PXD000759/lib51_direct.pyascore.wide.txt	969,1116
+FME	924	search	results/localization/PXD000759/lib52_direct.pyascore.wide.txt	969,1117
+FME	925	search	results/localization/PXD000759/lib53_direct.pyascore.wide.txt	969,1118
+FME	926	search	results/localization/PXD000759/lib54_direct.pyascore.wide.txt	969,1119
+FME	927	search	results/localization/PXD000759/lib55_direct.pyascore.wide.txt	969,1120
+FME	928	search	results/localization/PXD000759/lib56_direct.pyascore.wide.txt	969,1121
+FME	929	search	results/localization/PXD000759/lib57_direct.pyascore.wide.txt	969,1122
+FME	930	search	results/localization/PXD000759/lib58_direct.pyascore.wide.txt	969,1123
+FME	931	search	results/localization/PXD000759/lib59_direct.pyascore.wide.txt	969,1124
+FME	932	search	results/localization/PXD000759/lib60_direct.pyascore.wide.txt	969,1125
+FME	933	search	results/localization/PXD000759/lib61_direct.pyascore.wide.txt	969,1126
+FME	934	search	results/localization/PXD000759/lib62_direct.pyascore.wide.txt	969,1127
+FME	935	search	results/localization/PXD000759/lib63_direct.pyascore.wide.txt	969,1128
+FME	936	search	results/localization/PXD000759/lib64_direct.pyascore.wide.txt	969,1129
+FME	937	search	results/localization/PXD000759/lib65_direct.pyascore.wide.txt	969,1130
+FME	938	search	results/localization/PXD000759/lib66_direct.pyascore.wide.txt	969,1131
+FME	939	search	results/localization/PXD000759/lib67_direct.pyascore.wide.txt	969,1132
+FME	940	search	results/localization/PXD000759/lib68_direct.pyascore.wide.txt	969,1133
+FME	941	search	results/localization/PXD000759/lib69_direct.pyascore.wide.txt	969,1134
+FME	942	search	results/localization/PXD000759/lib70_direct.pyascore.wide.txt	969,1135
+FME	943	search	results/localization/PXD000759/lib71_direct.pyascore.wide.txt	969,1136
+FME	944	search	results/localization/PXD000759/lib72_direct.pyascore.wide.txt	969,1137
+FME	945	search	results/localization/PXD000759/lib73_direct.pyascore.wide.txt	969,1138
+FME	946	search	results/localization/PXD000759/lib74_direct.pyascore.wide.txt	969,1139
+FME	947	search	results/localization/PXD000759/lib75_direct.pyascore.wide.txt	969,1140
+FME	948	search	results/localization/PXD000759/lib76_direct.pyascore.wide.txt	969,1141
+FME	949	search	results/localization/PXD000759/lib77_direct.pyascore.wide.txt	969,1142
+FME	950	search	results/localization/PXD000759/lib78_direct.pyascore.wide.txt	969,1143
+FME	951	search	results/localization/PXD000759/lib79_direct.pyascore.wide.txt	969,1144
+FME	952	search	results/localization/PXD000759/lib80_direct.pyascore.wide.txt	969,1145
+FME	953	search	results/localization/PXD000759/lib81_direct.pyascore.wide.txt	969,1146
+FME	954	search	results/localization/PXD000759/lib82_direct.pyascore.wide.txt	969,1147
+FME	955	search	results/localization/PXD000759/lib83_direct.pyascore.wide.txt	969,1148
+FME	956	search	results/localization/PXD000759/lib84_direct.pyascore.wide.txt	969,1149
+FME	957	search	results/localization/PXD000759/lib85_direct.pyascore.wide.txt	969,1150
+FME	958	search	results/localization/PXD000759/lib86_direct.pyascore.wide.txt	969,1151
+FME	959	search	results/localization/PXD000759/lib87_direct.pyascore.wide.txt	969,1152
+FME	960	search	results/localization/PXD000759/lib88_direct.pyascore.wide.txt	969,1153
+FME	961	search	results/localization/PXD000759/lib89_direct.pyascore.wide.txt	969,1154
+FME	962	search	results/localization/PXD000759/lib90_direct.pyascore.wide.txt	969,1155
+FME	963	search	results/localization/PXD000759/lib91_direct.pyascore.wide.txt	969,1156
+FME	964	search	results/localization/PXD000759/lib92_direct.pyascore.wide.txt	969,1157
+FME	965	search	results/localization/PXD000759/lib93_direct.pyascore.wide.txt	969,1158
+FME	966	search	results/localization/PXD000759/lib94_direct.pyascore.wide.txt	969,1159
+FME	967	search	results/localization/PXD000759/lib95_direct.pyascore.wide.txt	969,1160
+FME	968	search	results/localization/PXD000759/lib96_direct.pyascore.wide.txt	969,1161
+FME	969	search	results/search/PXD000759/PXD000759.mokapot.psms.txt	970,971,972,973,974,975,976,977,978,979,980,981,982,983,984,985,986,987,988,989,990,991,992,993,994,995,996,997,998,999,1000,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028,1029,1030,1031,1032,1033,1034,1035,1036,1037,1038,1039,1040,1041,1042,1043,1044,1045,1046,1047,1048,1049,1050,1051,1052,1053,1054,1055,1056,1057,1058,1059,1060,1061,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1075,1076,1077,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092,1093,1094,1095,1096,1097,1098,1099,1100,1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1111,1112,1113,1114,1115,1116,1117,1118,1119,1120,1121,1122,1123,1124,1125,1126,1127,1128,1129,1130,1131,1132,1133,1134,1135,1136,1137,1138,1139,1140,1141,1142,1143,1144,1145,1146,1147,1148,1149,1150,1151,1152,1153,1154,1155,1156,1157,1158,1159,1160,1161
+FME	970	search	results/search/PXD000759/lib01_direct.comet.pin	1066
+FME	971	search	results/search/PXD000759/lib02_direct.comet.pin	1067
+FME	972	search	results/search/PXD000759/lib03_direct.comet.pin	1068
+FME	973	search	results/search/PXD000759/lib04_direct.comet.pin	1069
+FME	974	search	results/search/PXD000759/lib05_direct.comet.pin	1070
+FME	975	search	results/search/PXD000759/lib06_direct.comet.pin	1071
+FME	976	search	results/search/PXD000759/lib07_direct.comet.pin	1072
+FME	977	search	results/search/PXD000759/lib08_direct.comet.pin	1073
+FME	978	search	results/search/PXD000759/lib09_direct.comet.pin	1074
+FME	979	search	results/search/PXD000759/lib10_direct.comet.pin	1075
+FME	980	search	results/search/PXD000759/lib11_direct.comet.pin	1076
+FME	981	search	results/search/PXD000759/lib12_direct.comet.pin	1077
+FME	982	search	results/search/PXD000759/lib13_direct.comet.pin	1078
+FME	983	search	results/search/PXD000759/lib14_direct.comet.pin	1079
+FME	984	search	results/search/PXD000759/lib15_direct.comet.pin	1080
+FME	985	search	results/search/PXD000759/lib16_direct.comet.pin	1081
+FME	986	search	results/search/PXD000759/lib17_direct.comet.pin	1082
+FME	987	search	results/search/PXD000759/lib18_direct.comet.pin	1083
+FME	988	search	results/search/PXD000759/lib19_direct.comet.pin	1084
+FME	989	search	results/search/PXD000759/lib20_direct.comet.pin	1085
+FME	990	search	results/search/PXD000759/lib21_direct.comet.pin	1086
+FME	991	search	results/search/PXD000759/lib22_direct.comet.pin	1087
+FME	992	search	results/search/PXD000759/lib23_direct.comet.pin	1088
+FME	993	search	results/search/PXD000759/lib24_direct.comet.pin	1089
+FME	994	search	results/search/PXD000759/lib25_direct.comet.pin	1090
+FME	995	search	results/search/PXD000759/lib26_direct.comet.pin	1091
+FME	996	search	results/search/PXD000759/lib27_direct.comet.pin	1092
+FME	997	search	results/search/PXD000759/lib28_direct.comet.pin	1093
+FME	998	search	results/search/PXD000759/lib29_direct.comet.pin	1094
+FME	999	search	results/search/PXD000759/lib30_direct.comet.pin	1095
+FME	1000	search	results/search/PXD000759/lib31_direct.comet.pin	1096
+FME	1001	search	results/search/PXD000759/lib32_direct.comet.pin	1097
+FME	1002	search	results/search/PXD000759/lib33_direct.comet.pin	1098
+FME	1003	search	results/search/PXD000759/lib34_direct.comet.pin	1099
+FME	1004	search	results/search/PXD000759/lib35_direct.comet.pin	1100
+FME	1005	search	results/search/PXD000759/lib36_direct.comet.pin	1101
+FME	1006	search	results/search/PXD000759/lib37_direct.comet.pin	1102
+FME	1007	search	results/search/PXD000759/lib38_direct.comet.pin	1103
+FME	1008	search	results/search/PXD000759/lib39_direct.comet.pin	1104
+FME	1009	search	results/search/PXD000759/lib40_direct.comet.pin	1105
+FME	1010	search	results/search/PXD000759/lib41_direct.comet.pin	1106
+FME	1011	search	results/search/PXD000759/lib42_direct.comet.pin	1107
+FME	1012	search	results/search/PXD000759/lib43_direct.comet.pin	1108
+FME	1013	search	results/search/PXD000759/lib44_direct.comet.pin	1109
+FME	1014	search	results/search/PXD000759/lib45_direct.comet.pin	1110
+FME	1015	search	results/search/PXD000759/lib46_direct.comet.pin	1111
+FME	1016	search	results/search/PXD000759/lib47_direct.comet.pin	1112
+FME	1017	search	results/search/PXD000759/lib48_direct.comet.pin	1113
+FME	1018	search	results/search/PXD000759/lib49_direct.comet.pin	1114
+FME	1019	search	results/search/PXD000759/lib50_direct.comet.pin	1115
+FME	1020	search	results/search/PXD000759/lib51_direct.comet.pin	1116
+FME	1021	search	results/search/PXD000759/lib52_direct.comet.pin	1117
+FME	1022	search	results/search/PXD000759/lib53_direct.comet.pin	1118
+FME	1023	search	results/search/PXD000759/lib54_direct.comet.pin	1119
+FME	1024	search	results/search/PXD000759/lib55_direct.comet.pin	1120
+FME	1025	search	results/search/PXD000759/lib56_direct.comet.pin	1121
+FME	1026	search	results/search/PXD000759/lib57_direct.comet.pin	1122
+FME	1027	search	results/search/PXD000759/lib58_direct.comet.pin	1123
+FME	1028	search	results/search/PXD000759/lib59_direct.comet.pin	1124
+FME	1029	search	results/search/PXD000759/lib60_direct.comet.pin	1125
+FME	1030	search	results/search/PXD000759/lib61_direct.comet.pin	1126
+FME	1031	search	results/search/PXD000759/lib62_direct.comet.pin	1127
+FME	1032	search	results/search/PXD000759/lib63_direct.comet.pin	1128
+FME	1033	search	results/search/PXD000759/lib64_direct.comet.pin	1129
+FME	1034	search	results/search/PXD000759/lib65_direct.comet.pin	1130
+FME	1035	search	results/search/PXD000759/lib66_direct.comet.pin	1131
+FME	1036	search	results/search/PXD000759/lib67_direct.comet.pin	1132
+FME	1037	search	results/search/PXD000759/lib68_direct.comet.pin	1133
+FME	1038	search	results/search/PXD000759/lib69_direct.comet.pin	1134
+FME	1039	search	results/search/PXD000759/lib70_direct.comet.pin	1135
+FME	1040	search	results/search/PXD000759/lib71_direct.comet.pin	1136
+FME	1041	search	results/search/PXD000759/lib72_direct.comet.pin	1137
+FME	1042	search	results/search/PXD000759/lib73_direct.comet.pin	1138
+FME	1043	search	results/search/PXD000759/lib74_direct.comet.pin	1139
+FME	1044	search	results/search/PXD000759/lib75_direct.comet.pin	1140
+FME	1045	search	results/search/PXD000759/lib76_direct.comet.pin	1141
+FME	1046	search	results/search/PXD000759/lib77_direct.comet.pin	1142
+FME	1047	search	results/search/PXD000759/lib78_direct.comet.pin	1143
+FME	1048	search	results/search/PXD000759/lib79_direct.comet.pin	1144
+FME	1049	search	results/search/PXD000759/lib80_direct.comet.pin	1145
+FME	1050	search	results/search/PXD000759/lib81_direct.comet.pin	1146
+FME	1051	search	results/search/PXD000759/lib82_direct.comet.pin	1147
+FME	1052	search	results/search/PXD000759/lib83_direct.comet.pin	1148
+FME	1053	search	results/search/PXD000759/lib84_direct.comet.pin	1149
+FME	1054	search	results/search/PXD000759/lib85_direct.comet.pin	1150
+FME	1055	search	results/search/PXD000759/lib86_direct.comet.pin	1151
+FME	1056	search	results/search/PXD000759/lib87_direct.comet.pin	1152
+FME	1057	search	results/search/PXD000759/lib88_direct.comet.pin	1153
+FME	1058	search	results/search/PXD000759/lib89_direct.comet.pin	1154
+FME	1059	search	results/search/PXD000759/lib90_direct.comet.pin	1155
+FME	1060	search	results/search/PXD000759/lib91_direct.comet.pin	1156
+FME	1061	search	results/search/PXD000759/lib92_direct.comet.pin	1157
+FME	1062	search	results/search/PXD000759/lib93_direct.comet.pin	1158
+FME	1063	search	results/search/PXD000759/lib94_direct.comet.pin	1159
+FME	1064	search	results/search/PXD000759/lib95_direct.comet.pin	1160
+FME	1065	search	results/search/PXD000759/lib96_direct.comet.pin	1161
+FME	1066	raw	results/samples/PXD000759/lib01_direct.raw
+FME	1067	raw	results/samples/PXD000759/lib02_direct.raw
+FME	1068	raw	results/samples/PXD000759/lib03_direct.raw
+FME	1069	raw	results/samples/PXD000759/lib04_direct.raw
+FME	1070	raw	results/samples/PXD000759/lib05_direct.raw
+FME	1071	raw	results/samples/PXD000759/lib06_direct.raw
+FME	1072	raw	results/samples/PXD000759/lib07_direct.raw
+FME	1073	raw	results/samples/PXD000759/lib08_direct.raw
+FME	1074	raw	results/samples/PXD000759/lib09_direct.raw
+FME	1075	raw	results/samples/PXD000759/lib10_direct.raw
+FME	1076	raw	results/samples/PXD000759/lib11_direct.raw
+FME	1077	raw	results/samples/PXD000759/lib12_direct.raw
+FME	1078	raw	results/samples/PXD000759/lib13_direct.raw
+FME	1079	raw	results/samples/PXD000759/lib14_direct.raw
+FME	1080	raw	results/samples/PXD000759/lib15_direct.raw
+FME	1081	raw	results/samples/PXD000759/lib16_direct.raw
+FME	1082	raw	results/samples/PXD000759/lib17_direct.raw
+FME	1083	raw	results/samples/PXD000759/lib18_direct.raw
+FME	1084	raw	results/samples/PXD000759/lib19_direct.raw
+FME	1085	raw	results/samples/PXD000759/lib20_direct.raw
+FME	1086	raw	results/samples/PXD000759/lib21_direct.raw
+FME	1087	raw	results/samples/PXD000759/lib22_direct.raw
+FME	1088	raw	results/samples/PXD000759/lib23_direct.raw
+FME	1089	raw	results/samples/PXD000759/lib24_direct.raw
+FME	1090	raw	results/samples/PXD000759/lib25_direct.raw
+FME	1091	raw	results/samples/PXD000759/lib26_direct.raw
+FME	1092	raw	results/samples/PXD000759/lib27_direct.raw
+FME	1093	raw	results/samples/PXD000759/lib28_direct.raw
+FME	1094	raw	results/samples/PXD000759/lib29_direct.raw
+FME	1095	raw	results/samples/PXD000759/lib30_direct.raw
+FME	1096	raw	results/samples/PXD000759/lib31_direct.raw
+FME	1097	raw	results/samples/PXD000759/lib32_direct.raw
+FME	1098	raw	results/samples/PXD000759/lib33_direct.raw
+FME	1099	raw	results/samples/PXD000759/lib34_direct.raw
+FME	1100	raw	results/samples/PXD000759/lib35_direct.raw
+FME	1101	raw	results/samples/PXD000759/lib36_direct.raw
+FME	1102	raw	results/samples/PXD000759/lib37_direct.raw
+FME	1103	raw	results/samples/PXD000759/lib38_direct.raw
+FME	1104	raw	results/samples/PXD000759/lib39_direct.raw
+FME	1105	raw	results/samples/PXD000759/lib40_direct.raw
+FME	1106	raw	results/samples/PXD000759/lib41_direct.raw
+FME	1107	raw	results/samples/PXD000759/lib42_direct.raw
+FME	1108	raw	results/samples/PXD000759/lib43_direct.raw
+FME	1109	raw	results/samples/PXD000759/lib44_direct.raw
+FME	1110	raw	results/samples/PXD000759/lib45_direct.raw
+FME	1111	raw	results/samples/PXD000759/lib46_direct.raw
+FME	1112	raw	results/samples/PXD000759/lib47_direct.raw
+FME	1113	raw	results/samples/PXD000759/lib48_direct.raw
+FME	1114	raw	results/samples/PXD000759/lib49_direct.raw
+FME	1115	raw	results/samples/PXD000759/lib50_direct.raw
+FME	1116	raw	results/samples/PXD000759/lib51_direct.raw
+FME	1117	raw	results/samples/PXD000759/lib52_direct.raw
+FME	1118	raw	results/samples/PXD000759/lib53_direct.raw
+FME	1119	raw	results/samples/PXD000759/lib54_direct.raw
+FME	1120	raw	results/samples/PXD000759/lib55_direct.raw
+FME	1121	raw	results/samples/PXD000759/lib56_direct.raw
+FME	1122	raw	results/samples/PXD000759/lib57_direct.raw
+FME	1123	raw	results/samples/PXD000759/lib58_direct.raw
+FME	1124	raw	results/samples/PXD000759/lib59_direct.raw
+FME	1125	raw	results/samples/PXD000759/lib60_direct.raw
+FME	1126	raw	results/samples/PXD000759/lib61_direct.raw
+FME	1127	raw	results/samples/PXD000759/lib62_direct.raw
+FME	1128	raw	results/samples/PXD000759/lib63_direct.raw
+FME	1129	raw	results/samples/PXD000759/lib64_direct.raw
+FME	1130	raw	results/samples/PXD000759/lib65_direct.raw
+FME	1131	raw	results/samples/PXD000759/lib66_direct.raw
+FME	1132	raw	results/samples/PXD000759/lib67_direct.raw
+FME	1133	raw	results/samples/PXD000759/lib68_direct.raw
+FME	1134	raw	results/samples/PXD000759/lib69_direct.raw
+FME	1135	raw	results/samples/PXD000759/lib70_direct.raw
+FME	1136	raw	results/samples/PXD000759/lib71_direct.raw
+FME	1137	raw	results/samples/PXD000759/lib72_direct.raw
+FME	1138	raw	results/samples/PXD000759/lib73_direct.raw
+FME	1139	raw	results/samples/PXD000759/lib74_direct.raw
+FME	1140	raw	results/samples/PXD000759/lib75_direct.raw
+FME	1141	raw	results/samples/PXD000759/lib76_direct.raw
+FME	1142	raw	results/samples/PXD000759/lib77_direct.raw
+FME	1143	raw	results/samples/PXD000759/lib78_direct.raw
+FME	1144	raw	results/samples/PXD000759/lib79_direct.raw
+FME	1145	raw	results/samples/PXD000759/lib80_direct.raw
+FME	1146	raw	results/samples/PXD000759/lib81_direct.raw
+FME	1147	raw	results/samples/PXD000759/lib82_direct.raw
+FME	1148	raw	results/samples/PXD000759/lib83_direct.raw
+FME	1149	raw	results/samples/PXD000759/lib84_direct.raw
+FME	1150	raw	results/samples/PXD000759/lib85_direct.raw
+FME	1151	raw	results/samples/PXD000759/lib86_direct.raw
+FME	1152	raw	results/samples/PXD000759/lib87_direct.raw
+FME	1153	raw	results/samples/PXD000759/lib88_direct.raw
+FME	1154	raw	results/samples/PXD000759/lib89_direct.raw
+FME	1155	raw	results/samples/PXD000759/lib90_direct.raw
+FME	1156	raw	results/samples/PXD000759/lib91_direct.raw
+FME	1157	raw	results/samples/PXD000759/lib92_direct.raw
+FME	1158	raw	results/samples/PXD000759/lib93_direct.raw
+FME	1159	raw	results/samples/PXD000759/lib94_direct.raw
+FME	1160	raw	results/samples/PXD000759/lib95_direct.raw
+FME	1161	raw	results/samples/PXD000759/lib96_direct.raw
+FME	1162	fasta	config/uniprot-proteome-UP000005640.fasta
+FME	1163	fasta	config/009606_IPI_v3_72_with_P_Lib_062111.fasta
+FME	1164	other	file_metadata.csv
