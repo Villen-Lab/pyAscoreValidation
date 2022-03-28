@@ -1,0 +1,5 @@
+residues = STY
+mod_mass = 79.966331 
+hit_depth = 1
+fragment_types = cZ
+max_fragment_charge = 1 

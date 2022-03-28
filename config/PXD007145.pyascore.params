@@ -1,0 +1,6 @@
+residues = STY
+mod_mass = 79.966331 
+hit_depth = 1
+fragment_types = by
+static_mod_groups = C,nK
+static_mod_masses = 57.021464,229.16293213
