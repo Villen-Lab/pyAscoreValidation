@@ -18,6 +18,9 @@ Original results and figures which were included in the manuscript are available
 notebook files. These can be directly viewed in Github or downloaded and re-run with the re-created
 analysis on your own machine.
 
+- [**Comparison of pyAscore with original:**](https://github.com/AnthonyOfSeattle/pyAscoreValidation/blob/main/notebook/comparison_of_ascore_implementations.ipynb)
+  Here we look at how well the scores and localized sequences from the new pyAscore match up to the original.
+  **Gotcha:** Data for this analysis is currently downloaded seperately in the `/Mouse` folder.
 - [**Evaluation of pyAscore's speed:**](https://github.com/AnthonyOfSeattle/pyAscoreValidation/blob/main/notebook/evaluating_scoring_times.ipynb)
   Here we analyze the data from PXD007740 from scratch with pyAscore and time the scoring times for
   individual scans. This notebook is also a great place to see the command line interface of pyAscore
@@ -31,5 +34,8 @@ analysis on your own machine.
   The underlying peptides all come from [Marx *et al.* (2013)](https://pubmed.ncbi.nlm.nih.gov/23685481/),
   and we analyzed with 3 different fragementation modes. The HCD and ETD data come from the PRIDE
   accession, PXD000138, and the CID data comes from the PRIDE accession, PXD000759.
+- [**Comparison of pyAscore to PTMProphet:**](https://github.com/AnthonyOfSeattle/pyAscoreValidation/blob/main/notebook/comparison_of_pyascore_with_ptmprophet.ipynb)
+  Here we look at how well pyAscore performs compared to PTMProphet using data from the latter's papers.
+  **Gotcha:** Data for this analysis is currently downloaded seperately in the `/TPP` folder.
 
   
